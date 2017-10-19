@@ -18,5 +18,42 @@
   <%= @restaurant.description %>
 </p>
 
+<h2>Ratings</h2>
+<% @restaurant.ratings.each do |rating| %>
+  <p>
+    <strong>Rater:</strong>
+    <%= rating.rater %>
+  </p>
+
+  <p>
+    <strong>Comment:</strong>
+    <%= rating.comment %>
+  </p>
+
+  <p>
+    <strong>Score:</strong>
+    <%= rating.score %>
+  </p>
+<% end %>
+
+<h2>Add a rating:</h2>
+<%= form_with(model: [ @restaurant, @restaurant.ratings.build ], local: true) do |form| %>
+  <p>
+    <%= form.label :rater %><br>
+    <%= form.text_field :rater %>
+  </p>
+  <p>
+    <%= form.label :comment %><br>
+    <%= form.text_area :comment %>
+  </p>
+  <p>
+    <%= form.label :how_do_you_rate_it %><br>
+    <%= form.text_area :score %>
+  </p>
+  <p>
+    <%= form.submit %>
+  </p>
+<% end %>
+
 <%= link_to 'Edit', edit_restaurant_path(@restaurant) %>
 <%= link_to 'Back to Restaurants', restaurants_path %>
