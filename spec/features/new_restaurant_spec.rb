@@ -26,7 +26,7 @@ feature 'restaurants' do
 
   context 'restaurant has been added' do
     scenario 'should display restaurant' do
-      Restaurant.create(name: "Pizza Express")
+      Restaurant.create(name: "Pizza Express", description: "Bloody nice")
       visit '/restaurants'
       expect(page).to have_content("Pizza Express")
       expect(page).not_to have_content("No restaurants yet")
