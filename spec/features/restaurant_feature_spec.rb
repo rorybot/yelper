@@ -58,5 +58,18 @@ feature 'restaurants' do
       expect(page).to have_content ("It sucked")
     end
 
+    scenario 'user can see average of ratings' do
+      create_cafe_rouge
+      fill_in('rating[rater]', :with => "Some Bozo")
+      fill_in('rating[comment]', :with => "It sucked")
+      fill_in('rating[score]', :with => "2")
+      click_button('Create Rating')
+      fill_in('rating[rater]', :with => "Some Bozo")
+      fill_in('rating[comment]', :with => "It sucked")
+      fill_in('rating[score]', :with => "4")
+      click_button('Create Rating')
+      expect(page).to have_content ("Rating: 3") #becoz 3 is avg of 6
+    end
+
   end
 end

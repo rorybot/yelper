@@ -1,9 +1,14 @@
+require 'restaurants_helper'
+
 class RestaurantsController < ApplicationController
   def index
     @restaurants = Restaurant.all
   end
 
   def show
+    ratings_array = grab_ratings_for(params[:id].to_i)
+    @average = ratings_array.reduce(:+).to_f / ratings_array.size
+    p @average
     @restaurant = Restaurant.find(params[:id])
   end
 
@@ -39,6 +44,14 @@ class RestaurantsController < ApplicationController
     @restaurant = Restaurant.find(params[:id])
     @restaurant.destroy
     redirect_to restaurants_path
+  end
+
+  def grab_ratings_for(restaurant_id)
+    ratings_array = []
+    Rating.all.each{ |rating| if rating.restaurant_id == restaurant_id
+        ratings_array << rating.score
+      end}
+      return ratings_array
   end
 
 
