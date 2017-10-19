@@ -7,6 +7,7 @@ class RestaurantsController < ApplicationController
 
   def show
     ratings_array = grab_ratings_for(params[:id].to_i)
+    p ratings_array
     @average = ratings_array.reduce(:+).to_f / ratings_array.size
     p @average
     @restaurant = Restaurant.find(params[:id])
@@ -51,7 +52,7 @@ class RestaurantsController < ApplicationController
     Rating.all.each{ |rating| if rating.restaurant_id == restaurant_id
         ratings_array << rating.score
       end}
-      return ratings_array
+      return ratings_array.map(&:to_i)
   end
 
 

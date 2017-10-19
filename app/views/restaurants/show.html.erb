@@ -42,14 +42,17 @@
     <%= form.label :rater %><br>
     <%= form.text_field :rater %>
   </p>
+
+  <p>
+    <%= form.label :how_do_you_rate_it %><br>
+    <%= form.select :score, [ '1', '2','3','4','5' ], :prompt => 'How you rate it then, eh?' %>
+  </p>
+
   <p>
     <%= form.label :comment %><br>
     <%= form.text_area :comment %>
   </p>
-  <p>
-    <%= form.label :how_do_you_rate_it %><br>
-    <%= form.text_area :score %>
-  </p>
+
   <p>
     <%= form.submit %>
   </p>
