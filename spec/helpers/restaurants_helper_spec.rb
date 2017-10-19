@@ -10,6 +10,11 @@ require 'rails_helper'
 #     end
 #   end
 # end
-RSpec.describe RestaurantsHelper, type: :helper do
-  pending "add some examples to (or delete) #{__FILE__}"
+
+def create_cafe_rouge
+  visit '/restaurants/new'
+     fill_in('restaurant[name]', :with => "Cafe Rouge")
+     fill_in('restaurant[address]', :with => "Kensington Church Street")
+     fill_in('restaurant[description]', :with => "French Bistro")
+     click_button('Create Restaurant')
 end
