@@ -2,22 +2,6 @@ require 'rails_helper'
 require 'helpers/restaurants_helper_spec'
 
 feature 'restaurants' do
-  context 'no restaurants have been added' do
-    scenario 'should display a prompt to add a restaurant' do
-      visit '/restaurants'
-      expect(page).to have_content 'No restaurants yet'
-      expect(page).to have_link 'Add a restaurant'
-    end
-  end
-
-  context 'restaurant has been added' do
-    scenario 'should display restaurant' do
-      Restaurant.create(name: "Pizza Express")
-      visit '/restaurants'
-      expect(page).to have_content("Pizza Express")
-      expect(page).not_to have_content("No restaurants yet")
-    end
-  end
 
   context "editing restaurants" do
     scenario 'should edit restaurant in db when restaurant is edited in edit page' do
@@ -53,7 +37,7 @@ feature 'restaurants' do
       create_cafe_rouge
       fill_in('rating[rater]', :with => "Some Bozo")
       fill_in('rating[comment]', :with => "It sucked")
-      fill_in('rating[score]', :with => "1")
+      select "1", :from => "rating[score]"
       click_button('Create Rating')
       expect(page).to have_content ("It sucked")
     end
@@ -62,11 +46,11 @@ feature 'restaurants' do
       create_cafe_rouge
       fill_in('rating[rater]', :with => "Some Bozo")
       fill_in('rating[comment]', :with => "It sucked")
-      fill_in('rating[score]', :with => "2")
+      select "2", :from => "rating[score]"
       click_button('Create Rating')
       fill_in('rating[rater]', :with => "Some Bozo")
       fill_in('rating[comment]', :with => "It sucked")
-      fill_in('rating[score]', :with => "4")
+      select "4", :from => "rating[score]"
       click_button('Create Rating')
       expect(page).to have_content ("Rating: 3") #becoz 3 is avg of 6
     end
