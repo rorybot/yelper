@@ -18,3 +18,9 @@ def create_cafe_rouge
      fill_in('restaurant[description]', :with => "French Bistro")
      click_button('Create Restaurant')
 end
+
+# def sign_in(user)
+#     post user_session_path \
+#       "user[email]"    => user.email,
+#       "user[password]" => user.password
+#   end

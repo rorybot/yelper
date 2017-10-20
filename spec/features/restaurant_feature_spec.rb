@@ -2,6 +2,14 @@ require 'rails_helper'
 require 'helpers/restaurants_helper_spec'
 
 feature 'restaurants' do
+  include Devise::Test::IntegrationHelpers
+
+  before do
+    user = User.create email: 'tansaku@gmail.com', password: '12345678', password_confirmation: '12345678'
+    p user
+    sign_in(user)
+  end
+
 
   context "editing restaurants" do
     scenario 'should edit restaurant in db when restaurant is edited in edit page' do

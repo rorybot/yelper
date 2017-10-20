@@ -1,7 +1,20 @@
 require 'rails_helper'
+require 'helpers/restaurants_helper_spec'
 
 feature 'restaurants' do
+
+  include Devise::Test::IntegrationHelpers
+
+  before do
+    user = User.create email: 'tansaku@gmail.com', password: '12345678', password_confirmation: '12345678'
+    p user
+    sign_in(user)
+  end
+
+
   scenario 'adding a new restaurant' do
+    # p current_user
+    # p user_session
     visit '/restaurants/new'
     expect(page).to have_content('Name')
       create_cafe_rouge
