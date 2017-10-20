@@ -11,6 +11,11 @@
   <body>
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
+
+    <% @someone = current_user if current_user != nil
+        @someone||= "No one" %>
+      <p><h1 style="text-align: right"><%= @someone.email%> is signed in.</h1></p>
+
     <%= yield %>
   </body>
 </html>

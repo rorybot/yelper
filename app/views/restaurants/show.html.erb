@@ -1,5 +1,3 @@
-<h1 style="text-align: right"><%= current_user.email %> is logged in.</h1>
-
 <p>
   <strong>Name:</strong>
   <%= @restaurant.name %>
@@ -24,7 +22,7 @@
 <% @restaurant.ratings.each do |rating| %>
   <p>
     <strong>Rater:</strong>
-    <%= rating.rater %>
+    <%= rating.rater.email %>
   </p>
 
   <p>
@@ -40,10 +38,7 @@
 
 <h2>Add a rating:</h2>
 <%= form_with(model: [ @restaurant, @restaurant.ratings.build ], local: true) do |form| %>
-  <p>
-    <%= form.label :rater %><br>
-    <%= form.text_field :rater %>
-  </p>
+
 
   <p>
     <%= form.label :how_do_you_rate_it %><br>

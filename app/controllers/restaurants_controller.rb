@@ -14,6 +14,7 @@ class RestaurantsController < ApplicationController
     @average = ratings_array.reduce(:+).to_f / ratings_array.size
     p @average
     @restaurant = Restaurant.find(params[:id])
+
   end
 
   def new
