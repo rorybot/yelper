@@ -17213,3 +17213,1191 @@ Processing by RestaurantsController#index as HTML
   Rendered restaurants/index.html.erb within layouts/application (3.3ms)
 Completed 200 OK in 15ms (Views: 12.1ms | ActiveRecord: 0.5ms)
   [1m[35m (1.2ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+Started GET "/" for 127.0.0.1 at 2017-10-20 15:07:26 +0100
+Processing by WelcomeController#index as HTML
+  Rendering welcome/index.html.erb within layouts/application
+  Rendered welcome/index.html.erb within layouts/application (2.5ms)
+Completed 200 OK in 222ms (Views: 208.7ms | ActiveRecord: 0.0ms)
+Started GET "/restaurants" for 127.0.0.1 at 2017-10-20 15:07:26 +0100
+Processing by RestaurantsController#index as HTML
+  Rendering restaurants/index.html.erb within layouts/application
+  [1m[36mRestaurant Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "restaurants" LIMIT ?[0m  [["LIMIT", 1]]
+  Rendered restaurants/index.html.erb within layouts/application (3.6ms)
+Completed 200 OK in 19ms (Views: 7.4ms | ActiveRecord: 0.3ms)
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "tansaku@gmail.com"], ["LIMIT", 1]]
+  [1m[35mSQL (0.8ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["email", "tansaku@gmail.com"], ["encrypted_password", "$2a$04$3UzsJ2x.BbCjsid4MuqJ4.TqaqM9RbaSLfsaQePrOYKAmLZMnAZHK"], ["created_at", "2017-10-20 14:07:26.724781"], ["updated_at", "2017-10-20 14:07:26.724781"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/restaurants/new" for 127.0.0.1 at 2017-10-20 15:07:26 +0100
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[33mUPDATE "users" SET "sign_in_count" = ?, "current_sign_in_at" = ?, "last_sign_in_at" = ?, "current_sign_in_ip" = ?, "last_sign_in_ip" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["sign_in_count", 1], ["current_sign_in_at", "2017-10-20 14:07:26.731718"], ["last_sign_in_at", "2017-10-20 14:07:26.731718"], ["current_sign_in_ip", "127.0.0.1"], ["last_sign_in_ip", "127.0.0.1"], ["updated_at", "2017-10-20 14:07:26.732756"], ["id", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Processing by RestaurantsController#new as HTML
+  Rendering restaurants/new.html.erb within layouts/application
+  Rendered restaurants/_form.html.erb (19.8ms)
+  Rendered restaurants/new.html.erb within layouts/application (22.9ms)
+Completed 200 OK in 45ms (Views: 24.5ms | ActiveRecord: 0.4ms)
+Started GET "/restaurants/new" for 127.0.0.1 at 2017-10-20 15:07:26 +0100
+Processing by RestaurantsController#new as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering restaurants/new.html.erb within layouts/application
+  Rendered restaurants/_form.html.erb (1.1ms)
+  Rendered restaurants/new.html.erb within layouts/application (1.4ms)
+Completed 200 OK in 6ms (Views: 2.9ms | ActiveRecord: 0.2ms)
+Started POST "/restaurants" for 127.0.0.1 at 2017-10-20 15:07:26 +0100
+Processing by RestaurantsController#create as HTML
+  Parameters: {"utf8"=>"✓", "restaurant"=>{"name"=>"Cafe Rouge", "address"=>"Kensington Church Street", "description"=>"French Bistro"}, "commit"=>"Create Restaurant"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.8ms)[0m  [1m[32mINSERT INTO "restaurants" ("name", "address", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Cafe Rouge"], ["address", "Kensington Church Street"], ["description", "French Bistro"], ["created_at", "2017-10-20 14:07:26.807313"], ["updated_at", "2017-10-20 14:07:26.807313"]]
+  [1m[35m (0.4ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://www.example.com/restaurants/1
+Completed 302 Found in 7ms (ActiveRecord: 1.4ms)
+Started GET "/restaurants/1" for 127.0.0.1 at 2017-10-20 15:07:26 +0100
+Processing by RestaurantsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mRating Load (0.1ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings"[0m
+  [1m[36mRestaurant Load (0.2ms)[0m  [1m[34mSELECT  "restaurants".* FROM "restaurants" WHERE "restaurants"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering restaurants/show.html.erb within layouts/application
+  [1m[36mRating Load (0.2ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."restaurant_id" = ?[0m  [["restaurant_id", 1]]
+  Rendered restaurants/show.html.erb within layouts/application (38.0ms)
+Completed 200 OK in 51ms (Views: 39.8ms | ActiveRecord: 0.8ms)
+  [1m[35m (0.7ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "tansaku@gmail.com"], ["LIMIT", 1]]
+  [1m[35mSQL (0.7ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["email", "tansaku@gmail.com"], ["encrypted_password", "$2a$04$es5CMxXk0ETaGGl30YCyFO/UAwvqpKIqYIW37Rj3Eu6C/GGME3jsa"], ["created_at", "2017-10-20 14:07:26.873162"], ["updated_at", "2017-10-20 14:07:26.873162"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/restaurants/new" for 127.0.0.1 at 2017-10-20 15:07:26 +0100
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  [1m[33mUPDATE "users" SET "sign_in_count" = ?, "current_sign_in_at" = ?, "last_sign_in_at" = ?, "current_sign_in_ip" = ?, "last_sign_in_ip" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["sign_in_count", 1], ["current_sign_in_at", "2017-10-20 14:07:26.877745"], ["last_sign_in_at", "2017-10-20 14:07:26.877745"], ["current_sign_in_ip", "127.0.0.1"], ["last_sign_in_ip", "127.0.0.1"], ["updated_at", "2017-10-20 14:07:26.878499"], ["id", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Processing by RestaurantsController#new as HTML
+  Rendering restaurants/new.html.erb within layouts/application
+  Rendered restaurants/_form.html.erb (1.2ms)
+  Rendered restaurants/new.html.erb within layouts/application (1.4ms)
+Completed 200 OK in 3ms (Views: 2.5ms | ActiveRecord: 0.0ms)
+Started POST "/restaurants" for 127.0.0.1 at 2017-10-20 15:07:26 +0100
+Processing by RestaurantsController#create as HTML
+  Parameters: {"utf8"=>"✓", "restaurant"=>{"name"=>"", "address"=>"", "description"=>""}, "commit"=>"Create Restaurant"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+  Rendering restaurants/new.html.erb within layouts/application
+  Rendered restaurants/_form.html.erb (1.5ms)
+  Rendered restaurants/new.html.erb within layouts/application (1.7ms)
+Completed 200 OK in 9ms (Views: 2.8ms | ActiveRecord: 0.4ms)
+  [1m[35m (0.4ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "tansaku@gmail.com"], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["email", "tansaku@gmail.com"], ["encrypted_password", "$2a$04$cXWXlU62Xoe1d3L5q4wFLuL4/0451uTAlBGVjeJP8JDVLWFgElW0."], ["created_at", "2017-10-20 14:07:26.905376"], ["updated_at", "2017-10-20 14:07:26.905376"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/restaurants" for 127.0.0.1 at 2017-10-20 15:07:26 +0100
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[33mUPDATE "users" SET "sign_in_count" = ?, "current_sign_in_at" = ?, "last_sign_in_at" = ?, "current_sign_in_ip" = ?, "last_sign_in_ip" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["sign_in_count", 1], ["current_sign_in_at", "2017-10-20 14:07:26.910281"], ["last_sign_in_at", "2017-10-20 14:07:26.910281"], ["current_sign_in_ip", "127.0.0.1"], ["last_sign_in_ip", "127.0.0.1"], ["updated_at", "2017-10-20 14:07:26.929416"], ["id", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Processing by RestaurantsController#index as HTML
+  Rendering restaurants/index.html.erb within layouts/application
+  [1m[36mRestaurant Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "restaurants" LIMIT ?[0m  [["LIMIT", 1]]
+  Rendered restaurants/index.html.erb within layouts/application (1.3ms)
+Completed 200 OK in 4ms (Views: 3.0ms | ActiveRecord: 0.2ms)
+  [1m[35m (1.5ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "tansaku@gmail.com"], ["LIMIT", 1]]
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["email", "tansaku@gmail.com"], ["encrypted_password", "$2a$04$6o.BuHyU0.f5EIDZY6eNv.fwkAClwVnMhVE5DWC6Vk3UlMdCXmTFO"], ["created_at", "2017-10-20 14:07:26.952953"], ["updated_at", "2017-10-20 14:07:26.952953"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "restaurants" ("name", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Pizza Express"], ["description", "Bloody nice"], ["created_at", "2017-10-20 14:07:26.955698"], ["updated_at", "2017-10-20 14:07:26.955698"]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/restaurants" for 127.0.0.1 at 2017-10-20 15:07:26 +0100
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[33mUPDATE "users" SET "sign_in_count" = ?, "current_sign_in_at" = ?, "last_sign_in_at" = ?, "current_sign_in_ip" = ?, "last_sign_in_ip" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["sign_in_count", 1], ["current_sign_in_at", "2017-10-20 14:07:26.958127"], ["last_sign_in_at", "2017-10-20 14:07:26.958127"], ["current_sign_in_ip", "127.0.0.1"], ["last_sign_in_ip", "127.0.0.1"], ["updated_at", "2017-10-20 14:07:26.959034"], ["id", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Processing by RestaurantsController#index as HTML
+  Rendering restaurants/index.html.erb within layouts/application
+  [1m[36mRestaurant Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "restaurants" LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mRestaurant Load (0.4ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants"[0m
+  Rendered restaurants/index.html.erb within layouts/application (3.3ms)
+Completed 200 OK in 6ms (Views: 5.2ms | ActiveRecord: 0.5ms)
+  [1m[35m (3.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "tansaku@gmail.com"], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["email", "tansaku@gmail.com"], ["encrypted_password", "$2a$04$arzUUg0s05k20IMPlzoQIOTP2W3sdtoTWOjc.bQvcb2hEZDrbh8p6"], ["created_at", "2017-10-20 14:07:26.987462"], ["updated_at", "2017-10-20 14:07:26.987462"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/restaurants/new" for 127.0.0.1 at 2017-10-20 15:07:26 +0100
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[33mUPDATE "users" SET "sign_in_count" = ?, "current_sign_in_at" = ?, "last_sign_in_at" = ?, "current_sign_in_ip" = ?, "last_sign_in_ip" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["sign_in_count", 1], ["current_sign_in_at", "2017-10-20 14:07:26.990388"], ["last_sign_in_at", "2017-10-20 14:07:26.990388"], ["current_sign_in_ip", "127.0.0.1"], ["last_sign_in_ip", "127.0.0.1"], ["updated_at", "2017-10-20 14:07:26.990819"], ["id", 1]]
+  [1m[35m (0.3ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Processing by RestaurantsController#new as HTML
+  Rendering restaurants/new.html.erb within layouts/application
+  Rendered restaurants/_form.html.erb (1.9ms)
+  Rendered restaurants/new.html.erb within layouts/application (2.7ms)
+Completed 200 OK in 6ms (Views: 4.9ms | ActiveRecord: 0.0ms)
+Started GET "/restaurants/new" for 127.0.0.1 at 2017-10-20 15:07:27 +0100
+Processing by RestaurantsController#new as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering restaurants/new.html.erb within layouts/application
+  Rendered restaurants/_form.html.erb (2.4ms)
+  Rendered restaurants/new.html.erb within layouts/application (2.7ms)
+Completed 200 OK in 7ms (Views: 5.3ms | ActiveRecord: 0.2ms)
+Started POST "/restaurants" for 127.0.0.1 at 2017-10-20 15:07:27 +0100
+Processing by RestaurantsController#create as HTML
+  Parameters: {"utf8"=>"✓", "restaurant"=>{"name"=>"Cafe Rouge", "address"=>"Kensington Church Street", "description"=>"French Bistro"}, "commit"=>"Create Restaurant"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "restaurants" ("name", "address", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Cafe Rouge"], ["address", "Kensington Church Street"], ["description", "French Bistro"], ["created_at", "2017-10-20 14:07:27.020145"], ["updated_at", "2017-10-20 14:07:27.020145"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://www.example.com/restaurants/1
+Completed 302 Found in 4ms (ActiveRecord: 0.6ms)
+Started GET "/restaurants/1" for 127.0.0.1 at 2017-10-20 15:07:27 +0100
+Processing by RestaurantsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mRating Load (0.2ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings"[0m
+  [1m[36mRestaurant Load (0.3ms)[0m  [1m[34mSELECT  "restaurants".* FROM "restaurants" WHERE "restaurants"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering restaurants/show.html.erb within layouts/application
+  [1m[36mRating Load (0.1ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."restaurant_id" = ?[0m  [["restaurant_id", 1]]
+  Rendered restaurants/show.html.erb within layouts/application (4.6ms)
+Completed 200 OK in 11ms (Views: 6.7ms | ActiveRecord: 0.5ms)
+Started GET "/restaurants/1/edit" for 127.0.0.1 at 2017-10-20 15:07:27 +0100
+Processing by RestaurantsController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mRestaurant Load (0.1ms)[0m  [1m[34mSELECT  "restaurants".* FROM "restaurants" WHERE "restaurants"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering restaurants/edit.html.erb within layouts/application
+  Rendered restaurants/_form.html.erb (1.3ms)
+  Rendered restaurants/edit.html.erb within layouts/application (1.9ms)
+Completed 200 OK in 11ms (Views: 3.1ms | ActiveRecord: 0.6ms)
+Started PATCH "/restaurants/1" for 127.0.0.1 at 2017-10-20 15:07:27 +0100
+Processing by RestaurantsController#update as HTML
+  Parameters: {"utf8"=>"✓", "restaurant"=>{"name"=>"Adele's Bistro", "address"=>"Chelsea", "description"=>"French"}, "commit"=>"Update Restaurant", "id"=>"1"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mRestaurant Load (0.1ms)[0m  [1m[34mSELECT  "restaurants".* FROM "restaurants" WHERE "restaurants"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  [1m[33mUPDATE "restaurants" SET "name" = ?, "address" = ?, "description" = ?, "updated_at" = ? WHERE "restaurants"."id" = ?[0m  [["name", "Adele's Bistro"], ["address", "Chelsea"], ["description", "French"], ["updated_at", "2017-10-20 14:07:27.078750"], ["id", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://www.example.com/restaurants/1
+Completed 302 Found in 18ms (ActiveRecord: 0.6ms)
+Started GET "/restaurants/1" for 127.0.0.1 at 2017-10-20 15:07:27 +0100
+Processing by RestaurantsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mRating Load (0.1ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings"[0m
+  [1m[36mRestaurant Load (0.1ms)[0m  [1m[34mSELECT  "restaurants".* FROM "restaurants" WHERE "restaurants"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering restaurants/show.html.erb within layouts/application
+  [1m[36mRating Load (0.1ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."restaurant_id" = ?[0m  [["restaurant_id", 1]]
+  Rendered restaurants/show.html.erb within layouts/application (2.7ms)
+Completed 200 OK in 5ms (Views: 4.0ms | ActiveRecord: 0.2ms)
+  [1m[35m (1.3ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "tansaku@gmail.com"], ["LIMIT", 1]]
+  [1m[35mSQL (0.9ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["email", "tansaku@gmail.com"], ["encrypted_password", "$2a$04$mVUXoIiKT1he2DaD6dshdOmg6gdn3I7.sz4wllDIvSkpsBUq8UejG"], ["created_at", "2017-10-20 14:07:27.102173"], ["updated_at", "2017-10-20 14:07:27.102173"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/restaurants/new" for 127.0.0.1 at 2017-10-20 15:07:31 +0100
+  [1m[35m (0.3ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[33mUPDATE "users" SET "sign_in_count" = ?, "current_sign_in_at" = ?, "last_sign_in_at" = ?, "current_sign_in_ip" = ?, "last_sign_in_ip" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["sign_in_count", 1], ["current_sign_in_at", "2017-10-20 14:07:31.150613"], ["last_sign_in_at", "2017-10-20 14:07:31.150613"], ["current_sign_in_ip", "127.0.0.1"], ["last_sign_in_ip", "127.0.0.1"], ["updated_at", "2017-10-20 14:07:31.152898"], ["id", 1]]
+  [1m[35m (0.3ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Processing by RestaurantsController#new as HTML
+  Rendering restaurants/new.html.erb within layouts/application
+  Rendered restaurants/_form.html.erb (8.0ms)
+  Rendered restaurants/new.html.erb within layouts/application (8.6ms)
+Completed 200 OK in 13ms (Views: 12.1ms | ActiveRecord: 0.0ms)
+Started GET "/assets/application-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css" for 127.0.0.1 at 2017-10-20 15:07:31 +0100
+Started GET "/assets/application-5a58cf0ed6c3201569220a2d009778bff3144de96a6e29f2be635f1caeb412a9.js" for 127.0.0.1 at 2017-10-20 15:07:31 +0100
+Started POST "/restaurants" for 127.0.0.1 at 2017-10-20 15:07:32 +0100
+Processing by RestaurantsController#create as HTML
+  Parameters: {"utf8"=>"✓", "restaurant"=>{"name"=>"Cafe Rouge", "address"=>"Kensington Church Street", "description"=>"French Bistro"}, "commit"=>"Create Restaurant"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (4.5ms)[0m  [1m[32mINSERT INTO "restaurants" ("name", "address", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Cafe Rouge"], ["address", "Kensington Church Street"], ["description", "French Bistro"], ["created_at", "2017-10-20 14:07:32.989640"], ["updated_at", "2017-10-20 14:07:32.989640"]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://127.0.0.1:53317/restaurants/1
+Completed 302 Found in 20ms (ActiveRecord: 5.2ms)
+Started GET "/restaurants/1" for 127.0.0.1 at 2017-10-20 15:07:33 +0100
+Processing by RestaurantsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mRating Load (0.1ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings"[0m
+  [1m[36mRestaurant Load (0.1ms)[0m  [1m[34mSELECT  "restaurants".* FROM "restaurants" WHERE "restaurants"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering restaurants/show.html.erb within layouts/application
+  [1m[36mRating Load (0.1ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."restaurant_id" = ?[0m  [["restaurant_id", 1]]
+  Rendered restaurants/show.html.erb within layouts/application (6.5ms)
+Completed 200 OK in 11ms (Views: 9.6ms | ActiveRecord: 0.3ms)
+Started GET "/restaurants" for 127.0.0.1 at 2017-10-20 15:07:33 +0100
+Processing by RestaurantsController#index as HTML
+  Rendering restaurants/index.html.erb within layouts/application
+  [1m[36mRestaurant Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "restaurants" LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mRestaurant Load (0.1ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants"[0m
+  Rendered restaurants/index.html.erb within layouts/application (2.5ms)
+Completed 200 OK in 5ms (Views: 3.9ms | ActiveRecord: 0.3ms)
+Started DELETE "/restaurants/1" for 127.0.0.1 at 2017-10-20 15:07:33 +0100
+Processing by RestaurantsController#destroy as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mRestaurant Load (0.1ms)[0m  [1m[34mSELECT  "restaurants".* FROM "restaurants" WHERE "restaurants"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.9ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[31mDELETE FROM "restaurants" WHERE "restaurants"."id" = ?[0m  [["id", 1]]
+  [1m[35m (0.5ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://127.0.0.1:53317/restaurants
+Completed 302 Found in 17ms (ActiveRecord: 1.8ms)
+Started GET "/restaurants" for 127.0.0.1 at 2017-10-20 15:07:33 +0100
+Processing by RestaurantsController#index as HTML
+  Rendering restaurants/index.html.erb within layouts/application
+  [1m[36mRestaurant Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "restaurants" LIMIT ?[0m  [["LIMIT", 1]]
+  Rendered restaurants/index.html.erb within layouts/application (1.5ms)
+Completed 200 OK in 30ms (Views: 18.5ms | ActiveRecord: 0.2ms)
+  [1m[35m (2.3ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "tansaku@gmail.com"], ["LIMIT", 1]]
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["email", "tansaku@gmail.com"], ["encrypted_password", "$2a$04$7MVIL8WgRIRtUKA8q3t.2.M3gF3LCuyJIWITR.CDYO2wHVM00RF6O"], ["created_at", "2017-10-20 14:07:34.015499"], ["updated_at", "2017-10-20 14:07:34.015499"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/restaurants/new" for 127.0.0.1 at 2017-10-20 15:07:34 +0100
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  [1m[33mUPDATE "users" SET "sign_in_count" = ?, "current_sign_in_at" = ?, "last_sign_in_at" = ?, "current_sign_in_ip" = ?, "last_sign_in_ip" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["sign_in_count", 1], ["current_sign_in_at", "2017-10-20 14:07:34.019683"], ["last_sign_in_at", "2017-10-20 14:07:34.019683"], ["current_sign_in_ip", "127.0.0.1"], ["last_sign_in_ip", "127.0.0.1"], ["updated_at", "2017-10-20 14:07:34.020285"], ["id", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Processing by RestaurantsController#new as HTML
+  Rendering restaurants/new.html.erb within layouts/application
+  Rendered restaurants/_form.html.erb (2.0ms)
+  Rendered restaurants/new.html.erb within layouts/application (2.4ms)
+Completed 200 OK in 5ms (Views: 4.8ms | ActiveRecord: 0.0ms)
+Started POST "/restaurants" for 127.0.0.1 at 2017-10-20 15:07:34 +0100
+Processing by RestaurantsController#create as HTML
+  Parameters: {"utf8"=>"✓", "restaurant"=>{"name"=>"Cafe Rouge", "address"=>"Kensington Church Street", "description"=>"French Bistro"}, "commit"=>"Create Restaurant"}
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "restaurants" ("name", "address", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Cafe Rouge"], ["address", "Kensington Church Street"], ["description", "French Bistro"], ["created_at", "2017-10-20 14:07:34.053794"], ["updated_at", "2017-10-20 14:07:34.053794"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://www.example.com/restaurants/1
+Completed 302 Found in 11ms (ActiveRecord: 1.7ms)
+Started GET "/restaurants/1" for 127.0.0.1 at 2017-10-20 15:07:34 +0100
+Processing by RestaurantsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mRating Load (0.1ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings"[0m
+  [1m[36mRestaurant Load (0.1ms)[0m  [1m[34mSELECT  "restaurants".* FROM "restaurants" WHERE "restaurants"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering restaurants/show.html.erb within layouts/application
+  [1m[36mRating Load (0.1ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."restaurant_id" = ?[0m  [["restaurant_id", 1]]
+  Rendered restaurants/show.html.erb within layouts/application (4.8ms)
+Completed 200 OK in 9ms (Views: 7.1ms | ActiveRecord: 0.3ms)
+Started POST "/restaurants/1/ratings" for 127.0.0.1 at 2017-10-20 15:07:34 +0100
+Processing by RatingsController#create as HTML
+  Parameters: {"utf8"=>"✓", "rating"=>{"rater"=>"Some Bozo", "score"=>"1", "comment"=>"It sucked"}, "commit"=>"Create Rating", "restaurant_id"=>"1"}
+  [1m[36mRestaurant Load (0.1ms)[0m  [1m[34mSELECT  "restaurants".* FROM "restaurants" WHERE "restaurants"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "ratings" ("rater", "comment", "score", "restaurant_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["rater", "Some Bozo"], ["comment", "It sucked"], ["score", 1], ["restaurant_id", 1], ["created_at", "2017-10-20 14:07:34.101078"], ["updated_at", "2017-10-20 14:07:34.101078"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://www.example.com/restaurants/1
+Completed 302 Found in 19ms (ActiveRecord: 0.6ms)
+Started GET "/restaurants/1" for 127.0.0.1 at 2017-10-20 15:07:34 +0100
+Processing by RestaurantsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mRating Load (0.2ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings"[0m
+  [1m[36mRestaurant Load (0.1ms)[0m  [1m[34mSELECT  "restaurants".* FROM "restaurants" WHERE "restaurants"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering restaurants/show.html.erb within layouts/application
+  [1m[36mRating Load (0.2ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."restaurant_id" = ?[0m  [["restaurant_id", 1]]
+  Rendered restaurants/show.html.erb within layouts/application (19.8ms)
+Completed 200 OK in 34ms (Views: 30.0ms | ActiveRecord: 0.6ms)
+  [1m[35m (0.7ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "tansaku@gmail.com"], ["LIMIT", 1]]
+  [1m[35mSQL (0.7ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["email", "tansaku@gmail.com"], ["encrypted_password", "$2a$04$/qBQwq9PxXOVP47.CdWcU.qpILUudxh8Wj6VMWqeMcKQjKs9IKR3C"], ["created_at", "2017-10-20 14:07:34.165737"], ["updated_at", "2017-10-20 14:07:34.165737"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/restaurants/new" for 127.0.0.1 at 2017-10-20 15:07:34 +0100
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (1.6ms)[0m  [1m[33mUPDATE "users" SET "sign_in_count" = ?, "current_sign_in_at" = ?, "last_sign_in_at" = ?, "current_sign_in_ip" = ?, "last_sign_in_ip" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["sign_in_count", 1], ["current_sign_in_at", "2017-10-20 14:07:34.171694"], ["last_sign_in_at", "2017-10-20 14:07:34.171694"], ["current_sign_in_ip", "127.0.0.1"], ["last_sign_in_ip", "127.0.0.1"], ["updated_at", "2017-10-20 14:07:34.172999"], ["id", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Processing by RestaurantsController#new as HTML
+  Rendering restaurants/new.html.erb within layouts/application
+  Rendered restaurants/_form.html.erb (8.5ms)
+  Rendered restaurants/new.html.erb within layouts/application (9.2ms)
+Completed 200 OK in 21ms (Views: 20.0ms | ActiveRecord: 0.0ms)
+Started POST "/restaurants" for 127.0.0.1 at 2017-10-20 15:07:34 +0100
+Processing by RestaurantsController#create as HTML
+  Parameters: {"utf8"=>"✓", "restaurant"=>{"name"=>"Cafe Rouge", "address"=>"Kensington Church Street", "description"=>"French Bistro"}, "commit"=>"Create Restaurant"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "restaurants" ("name", "address", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Cafe Rouge"], ["address", "Kensington Church Street"], ["description", "French Bistro"], ["created_at", "2017-10-20 14:07:34.251311"], ["updated_at", "2017-10-20 14:07:34.251311"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://www.example.com/restaurants/1
+Completed 302 Found in 7ms (ActiveRecord: 0.7ms)
+Started GET "/restaurants/1" for 127.0.0.1 at 2017-10-20 15:07:34 +0100
+Processing by RestaurantsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mRating Load (0.2ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings"[0m
+  [1m[36mRestaurant Load (0.1ms)[0m  [1m[34mSELECT  "restaurants".* FROM "restaurants" WHERE "restaurants"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering restaurants/show.html.erb within layouts/application
+  [1m[36mRating Load (0.4ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."restaurant_id" = ?[0m  [["restaurant_id", 1]]
+  Rendered restaurants/show.html.erb within layouts/application (9.1ms)
+Completed 200 OK in 16ms (Views: 13.7ms | ActiveRecord: 0.6ms)
+Started POST "/restaurants/1/ratings" for 127.0.0.1 at 2017-10-20 15:07:34 +0100
+Processing by RatingsController#create as HTML
+  Parameters: {"utf8"=>"✓", "rating"=>{"rater"=>"Some Bozo", "score"=>"2", "comment"=>"It sucked"}, "commit"=>"Create Rating", "restaurant_id"=>"1"}
+  [1m[36mRestaurant Load (0.1ms)[0m  [1m[34mSELECT  "restaurants".* FROM "restaurants" WHERE "restaurants"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "ratings" ("rater", "comment", "score", "restaurant_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["rater", "Some Bozo"], ["comment", "It sucked"], ["score", 2], ["restaurant_id", 1], ["created_at", "2017-10-20 14:07:34.301026"], ["updated_at", "2017-10-20 14:07:34.301026"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://www.example.com/restaurants/1
+Completed 302 Found in 6ms (ActiveRecord: 0.6ms)
+Started GET "/restaurants/1" for 127.0.0.1 at 2017-10-20 15:07:34 +0100
+Processing by RestaurantsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mRating Load (0.2ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings"[0m
+  [1m[36mRestaurant Load (0.1ms)[0m  [1m[34mSELECT  "restaurants".* FROM "restaurants" WHERE "restaurants"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering restaurants/show.html.erb within layouts/application
+  [1m[36mRating Load (0.4ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."restaurant_id" = ?[0m  [["restaurant_id", 1]]
+  Rendered restaurants/show.html.erb within layouts/application (9.9ms)
+Completed 200 OK in 15ms (Views: 11.6ms | ActiveRecord: 0.7ms)
+Started POST "/restaurants/1/ratings" for 127.0.0.1 at 2017-10-20 15:07:34 +0100
+Processing by RatingsController#create as HTML
+  Parameters: {"utf8"=>"✓", "rating"=>{"rater"=>"Some Bozo", "score"=>"4", "comment"=>"It sucked"}, "commit"=>"Create Rating", "restaurant_id"=>"1"}
+  [1m[36mRestaurant Load (0.1ms)[0m  [1m[34mSELECT  "restaurants".* FROM "restaurants" WHERE "restaurants"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "ratings" ("rater", "comment", "score", "restaurant_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["rater", "Some Bozo"], ["comment", "It sucked"], ["score", 4], ["restaurant_id", 1], ["created_at", "2017-10-20 14:07:34.340687"], ["updated_at", "2017-10-20 14:07:34.340687"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://www.example.com/restaurants/1
+Completed 302 Found in 5ms (ActiveRecord: 0.4ms)
+Started GET "/restaurants/1" for 127.0.0.1 at 2017-10-20 15:07:34 +0100
+Processing by RestaurantsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mRating Load (0.1ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings"[0m
+  [1m[36mRestaurant Load (0.1ms)[0m  [1m[34mSELECT  "restaurants".* FROM "restaurants" WHERE "restaurants"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering restaurants/show.html.erb within layouts/application
+  [1m[36mRating Load (0.1ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."restaurant_id" = ?[0m  [["restaurant_id", 1]]
+  Rendered restaurants/show.html.erb within layouts/application (6.4ms)
+Completed 200 OK in 13ms (Views: 10.5ms | ActiveRecord: 0.3ms)
+  [1m[35m (1.5ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "restaurants" ("name", "rating", "address", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "Pizza Express"], ["rating", 4], ["address", "London"], ["description", "Pizzas"], ["created_at", "2017-10-20 14:07:34.370736"], ["updated_at", "2017-10-20 14:07:34.370736"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "restaurants" ("name", "rating", "address", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "McDonalds"], ["rating", 3], ["address", "Edinburgh"], ["description", "Burgers"], ["created_at", "2017-10-20 14:07:34.375645"], ["updated_at", "2017-10-20 14:07:34.375645"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/restaurants" for 127.0.0.1 at 2017-10-20 15:07:34 +0100
+Processing by RestaurantsController#index as HTML
+  Rendering restaurants/index.html.erb within layouts/application
+  [1m[36mRestaurant Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "restaurants" LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mRestaurant Load (0.1ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants"[0m
+  Rendered restaurants/index.html.erb within layouts/application (1.4ms)
+Completed 200 OK in 5ms (Views: 4.1ms | ActiveRecord: 0.3ms)
+  [1m[35m (0.5ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+Started GET "/" for 127.0.0.1 at 2017-10-20 15:35:26 +0100
+Processing by WelcomeController#index as HTML
+  Rendering welcome/index.html.erb within layouts/application
+  Rendered welcome/index.html.erb within layouts/application (9.8ms)
+Completed 500 Internal Server Error in 28ms (ActiveRecord: 0.0ms)
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "tansaku@gmail.com"], ["LIMIT", 1]]
+  [1m[35mSQL (1.1ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["email", "tansaku@gmail.com"], ["encrypted_password", "$2a$04$KgvfU7zY1pWkoXksxVTGkunJXL8Pz5alNZ45pqI2rTMwZHTljz64K"], ["created_at", "2017-10-20 14:35:26.877170"], ["updated_at", "2017-10-20 14:35:26.877170"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/restaurants/new" for 127.0.0.1 at 2017-10-20 15:35:26 +0100
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  [1m[33mUPDATE "users" SET "sign_in_count" = ?, "current_sign_in_at" = ?, "last_sign_in_at" = ?, "current_sign_in_ip" = ?, "last_sign_in_ip" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["sign_in_count", 1], ["current_sign_in_at", "2017-10-20 14:35:26.880871"], ["last_sign_in_at", "2017-10-20 14:35:26.880871"], ["current_sign_in_ip", "127.0.0.1"], ["last_sign_in_ip", "127.0.0.1"], ["updated_at", "2017-10-20 14:35:26.881393"], ["id", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Processing by RestaurantsController#new as HTML
+  Rendering restaurants/new.html.erb within layouts/application
+  Rendered restaurants/_form.html.erb (21.7ms)
+  Rendered restaurants/new.html.erb within layouts/application (24.2ms)
+Completed 200 OK in 261ms (Views: 245.7ms | ActiveRecord: 0.3ms)
+Started GET "/restaurants/new" for 127.0.0.1 at 2017-10-20 15:35:27 +0100
+Processing by RestaurantsController#new as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering restaurants/new.html.erb within layouts/application
+  Rendered restaurants/_form.html.erb (2.5ms)
+  Rendered restaurants/new.html.erb within layouts/application (3.0ms)
+Completed 200 OK in 10ms (Views: 5.3ms | ActiveRecord: 0.3ms)
+Started POST "/restaurants" for 127.0.0.1 at 2017-10-20 15:35:27 +0100
+Processing by RestaurantsController#create as HTML
+  Parameters: {"utf8"=>"✓", "restaurant"=>{"name"=>"Cafe Rouge", "address"=>"Kensington Church Street", "description"=>"French Bistro"}, "commit"=>"Create Restaurant"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "restaurants" ("name", "address", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Cafe Rouge"], ["address", "Kensington Church Street"], ["description", "French Bistro"], ["created_at", "2017-10-20 14:35:27.178806"], ["updated_at", "2017-10-20 14:35:27.178806"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://www.example.com/restaurants/1
+Completed 302 Found in 4ms (ActiveRecord: 0.7ms)
+Started GET "/restaurants/1" for 127.0.0.1 at 2017-10-20 15:35:27 +0100
+Processing by RestaurantsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mRating Load (0.4ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings"[0m
+  [1m[36mRestaurant Load (0.1ms)[0m  [1m[34mSELECT  "restaurants".* FROM "restaurants" WHERE "restaurants"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering restaurants/show.html.erb within layouts/application
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mRating Load (0.4ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."restaurant_id" = ?[0m  [["restaurant_id", 1]]
+  Rendered restaurants/show.html.erb within layouts/application (29.7ms)
+Completed 200 OK in 42ms (Views: 30.2ms | ActiveRecord: 1.4ms)
+  [1m[35m (0.4ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "tansaku@gmail.com"], ["LIMIT", 1]]
+  [1m[35mSQL (1.2ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["email", "tansaku@gmail.com"], ["encrypted_password", "$2a$04$T62CvjvZ1Y9qQ577F3nNLeK8QpXgDeFKUW1ZPmdG9zSniJiadDLYq"], ["created_at", "2017-10-20 14:35:27.235815"], ["updated_at", "2017-10-20 14:35:27.235815"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/restaurants/new" for 127.0.0.1 at 2017-10-20 15:35:27 +0100
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[33mUPDATE "users" SET "sign_in_count" = ?, "current_sign_in_at" = ?, "last_sign_in_at" = ?, "current_sign_in_ip" = ?, "last_sign_in_ip" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["sign_in_count", 1], ["current_sign_in_at", "2017-10-20 14:35:27.241966"], ["last_sign_in_at", "2017-10-20 14:35:27.241966"], ["current_sign_in_ip", "127.0.0.1"], ["last_sign_in_ip", "127.0.0.1"], ["updated_at", "2017-10-20 14:35:27.242954"], ["id", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Processing by RestaurantsController#new as HTML
+  Rendering restaurants/new.html.erb within layouts/application
+  Rendered restaurants/_form.html.erb (1.4ms)
+  Rendered restaurants/new.html.erb within layouts/application (1.7ms)
+Completed 200 OK in 4ms (Views: 3.3ms | ActiveRecord: 0.0ms)
+Started POST "/restaurants" for 127.0.0.1 at 2017-10-20 15:35:27 +0100
+Processing by RestaurantsController#create as HTML
+  Parameters: {"utf8"=>"✓", "restaurant"=>{"name"=>"", "address"=>"", "description"=>""}, "commit"=>"Create Restaurant"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+  Rendering restaurants/new.html.erb within layouts/application
+  Rendered restaurants/_form.html.erb (2.5ms)
+  Rendered restaurants/new.html.erb within layouts/application (2.9ms)
+Completed 200 OK in 12ms (Views: 5.1ms | ActiveRecord: 0.5ms)
+  [1m[35m (0.5ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "tansaku@gmail.com"], ["LIMIT", 1]]
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["email", "tansaku@gmail.com"], ["encrypted_password", "$2a$04$XC1pwXxR8c6tzxm2AzWxeuvhdOx0hPgGllQbyZgetToHDObx02VtS"], ["created_at", "2017-10-20 14:35:27.283692"], ["updated_at", "2017-10-20 14:35:27.283692"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/restaurants" for 127.0.0.1 at 2017-10-20 15:35:27 +0100
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  [1m[33mUPDATE "users" SET "sign_in_count" = ?, "current_sign_in_at" = ?, "last_sign_in_at" = ?, "current_sign_in_ip" = ?, "last_sign_in_ip" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["sign_in_count", 1], ["current_sign_in_at", "2017-10-20 14:35:27.287037"], ["last_sign_in_at", "2017-10-20 14:35:27.287037"], ["current_sign_in_ip", "127.0.0.1"], ["last_sign_in_ip", "127.0.0.1"], ["updated_at", "2017-10-20 14:35:27.287972"], ["id", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Processing by RestaurantsController#index as HTML
+  Rendering restaurants/index.html.erb within layouts/application
+  [1m[36mRestaurant Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "restaurants" LIMIT ?[0m  [["LIMIT", 1]]
+  Rendered restaurants/index.html.erb within layouts/application (1.7ms)
+Completed 200 OK in 5ms (Views: 2.8ms | ActiveRecord: 0.1ms)
+  [1m[35m (0.4ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "tansaku@gmail.com"], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["email", "tansaku@gmail.com"], ["encrypted_password", "$2a$04$lJM/8.RWQLf1iU/jWbyLXOuxjRshDA3VKy0aT.OOTXpp.9ZBs8DJu"], ["created_at", "2017-10-20 14:35:27.304553"], ["updated_at", "2017-10-20 14:35:27.304553"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "restaurants" ("name", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Pizza Express"], ["description", "Bloody nice"], ["created_at", "2017-10-20 14:35:27.306665"], ["updated_at", "2017-10-20 14:35:27.306665"]]
+  [1m[35m (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/restaurants" for 127.0.0.1 at 2017-10-20 15:35:27 +0100
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  [1m[33mUPDATE "users" SET "sign_in_count" = ?, "current_sign_in_at" = ?, "last_sign_in_at" = ?, "current_sign_in_ip" = ?, "last_sign_in_ip" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["sign_in_count", 1], ["current_sign_in_at", "2017-10-20 14:35:27.308886"], ["last_sign_in_at", "2017-10-20 14:35:27.308886"], ["current_sign_in_ip", "127.0.0.1"], ["last_sign_in_ip", "127.0.0.1"], ["updated_at", "2017-10-20 14:35:27.309399"], ["id", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Processing by RestaurantsController#index as HTML
+  Rendering restaurants/index.html.erb within layouts/application
+  [1m[36mRestaurant Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "restaurants" LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mRestaurant Load (0.1ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants"[0m
+  Rendered restaurants/index.html.erb within layouts/application (1.6ms)
+Completed 200 OK in 3ms (Views: 2.5ms | ActiveRecord: 0.2ms)
+  [1m[35m (0.4ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "tansaku@gmail.com"], ["LIMIT", 1]]
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["email", "tansaku@gmail.com"], ["encrypted_password", "$2a$04$9JMdKf4kgOUihS/cLNN3yeLyOJzFc07L3sh9FYC0GuFkp3aVCRN1G"], ["created_at", "2017-10-20 14:35:27.324042"], ["updated_at", "2017-10-20 14:35:27.324042"]]
+  [1m[35m (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/restaurants/new" for 127.0.0.1 at 2017-10-20 15:35:27 +0100
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[33mUPDATE "users" SET "sign_in_count" = ?, "current_sign_in_at" = ?, "last_sign_in_at" = ?, "current_sign_in_ip" = ?, "last_sign_in_ip" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["sign_in_count", 1], ["current_sign_in_at", "2017-10-20 14:35:27.326582"], ["last_sign_in_at", "2017-10-20 14:35:27.326582"], ["current_sign_in_ip", "127.0.0.1"], ["last_sign_in_ip", "127.0.0.1"], ["updated_at", "2017-10-20 14:35:27.327043"], ["id", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Processing by RestaurantsController#new as HTML
+  Rendering restaurants/new.html.erb within layouts/application
+  Rendered restaurants/_form.html.erb (1.3ms)
+  Rendered restaurants/new.html.erb within layouts/application (1.6ms)
+Completed 200 OK in 3ms (Views: 2.7ms | ActiveRecord: 0.0ms)
+Started GET "/restaurants/new" for 127.0.0.1 at 2017-10-20 15:35:27 +0100
+Processing by RestaurantsController#new as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering restaurants/new.html.erb within layouts/application
+  Rendered restaurants/_form.html.erb (2.4ms)
+  Rendered restaurants/new.html.erb within layouts/application (2.8ms)
+Completed 200 OK in 7ms (Views: 4.8ms | ActiveRecord: 0.2ms)
+Started POST "/restaurants" for 127.0.0.1 at 2017-10-20 15:35:27 +0100
+Processing by RestaurantsController#create as HTML
+  Parameters: {"utf8"=>"✓", "restaurant"=>{"name"=>"Cafe Rouge", "address"=>"Kensington Church Street", "description"=>"French Bistro"}, "commit"=>"Create Restaurant"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "restaurants" ("name", "address", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Cafe Rouge"], ["address", "Kensington Church Street"], ["description", "French Bistro"], ["created_at", "2017-10-20 14:35:27.349113"], ["updated_at", "2017-10-20 14:35:27.349113"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://www.example.com/restaurants/1
+Completed 302 Found in 3ms (ActiveRecord: 0.4ms)
+Started GET "/restaurants/1" for 127.0.0.1 at 2017-10-20 15:35:27 +0100
+Processing by RestaurantsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mRating Load (0.2ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings"[0m
+  [1m[36mRestaurant Load (0.2ms)[0m  [1m[34mSELECT  "restaurants".* FROM "restaurants" WHERE "restaurants"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering restaurants/show.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mRating Load (0.1ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."restaurant_id" = ?[0m  [["restaurant_id", 1]]
+  Rendered restaurants/show.html.erb within layouts/application (4.2ms)
+Completed 200 OK in 9ms (Views: 5.4ms | ActiveRecord: 0.6ms)
+Started GET "/restaurants/1/edit" for 127.0.0.1 at 2017-10-20 15:35:27 +0100
+Processing by RestaurantsController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mRestaurant Load (0.2ms)[0m  [1m[34mSELECT  "restaurants".* FROM "restaurants" WHERE "restaurants"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering restaurants/edit.html.erb within layouts/application
+  Rendered restaurants/_form.html.erb (1.4ms)
+  Rendered restaurants/edit.html.erb within layouts/application (2.1ms)
+Completed 200 OK in 9ms (Views: 3.2ms | ActiveRecord: 0.3ms)
+Started PATCH "/restaurants/1" for 127.0.0.1 at 2017-10-20 15:35:27 +0100
+Processing by RestaurantsController#update as HTML
+  Parameters: {"utf8"=>"✓", "restaurant"=>{"name"=>"Adele's Bistro", "address"=>"Chelsea", "description"=>"French"}, "commit"=>"Update Restaurant", "id"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mRestaurant Load (0.0ms)[0m  [1m[34mSELECT  "restaurants".* FROM "restaurants" WHERE "restaurants"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[33mUPDATE "restaurants" SET "name" = ?, "address" = ?, "description" = ?, "updated_at" = ? WHERE "restaurants"."id" = ?[0m  [["name", "Adele's Bistro"], ["address", "Chelsea"], ["description", "French"], ["updated_at", "2017-10-20 14:35:27.383842"], ["id", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://www.example.com/restaurants/1
+Completed 302 Found in 5ms (ActiveRecord: 0.6ms)
+Started GET "/restaurants/1" for 127.0.0.1 at 2017-10-20 15:35:27 +0100
+Processing by RestaurantsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mRating Load (0.1ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings"[0m
+  [1m[36mRestaurant Load (0.1ms)[0m  [1m[34mSELECT  "restaurants".* FROM "restaurants" WHERE "restaurants"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering restaurants/show.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mRating Load (0.1ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."restaurant_id" = ?[0m  [["restaurant_id", 1]]
+  Rendered restaurants/show.html.erb within layouts/application (4.1ms)
+Completed 200 OK in 7ms (Views: 5.4ms | ActiveRecord: 0.4ms)
+  [1m[35m (1.2ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "tansaku@gmail.com"], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["email", "tansaku@gmail.com"], ["encrypted_password", "$2a$04$LSm9rfbixv9Uz1HiRc43luK6Yy3UdoI4aZBpDKXX6l12ksySvj7g."], ["created_at", "2017-10-20 14:35:27.408455"], ["updated_at", "2017-10-20 14:35:27.408455"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/restaurants/new" for 127.0.0.1 at 2017-10-20 15:35:31 +0100
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[33mUPDATE "users" SET "sign_in_count" = ?, "current_sign_in_at" = ?, "last_sign_in_at" = ?, "current_sign_in_ip" = ?, "last_sign_in_ip" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["sign_in_count", 1], ["current_sign_in_at", "2017-10-20 14:35:31.507641"], ["last_sign_in_at", "2017-10-20 14:35:31.507641"], ["current_sign_in_ip", "127.0.0.1"], ["last_sign_in_ip", "127.0.0.1"], ["updated_at", "2017-10-20 14:35:31.509449"], ["id", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Processing by RestaurantsController#new as HTML
+  Rendering restaurants/new.html.erb within layouts/application
+  Rendered restaurants/_form.html.erb (7.6ms)
+  Rendered restaurants/new.html.erb within layouts/application (8.7ms)
+Completed 200 OK in 18ms (Views: 16.3ms | ActiveRecord: 0.0ms)
+Started GET "/assets/application-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css" for 127.0.0.1 at 2017-10-20 15:35:31 +0100
+Started GET "/assets/application-5a58cf0ed6c3201569220a2d009778bff3144de96a6e29f2be635f1caeb412a9.js" for 127.0.0.1 at 2017-10-20 15:35:31 +0100
+Started POST "/restaurants" for 127.0.0.1 at 2017-10-20 15:35:33 +0100
+Processing by RestaurantsController#create as HTML
+  Parameters: {"utf8"=>"✓", "restaurant"=>{"name"=>"Cafe Rouge", "address"=>"Kensington Church Street", "description"=>"French Bistro"}, "commit"=>"Create Restaurant"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.4ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (1.8ms)[0m  [1m[32mINSERT INTO "restaurants" ("name", "address", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Cafe Rouge"], ["address", "Kensington Church Street"], ["description", "French Bistro"], ["created_at", "2017-10-20 14:35:33.578373"], ["updated_at", "2017-10-20 14:35:33.578373"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://127.0.0.1:54020/restaurants/1
+Completed 302 Found in 16ms (ActiveRecord: 2.7ms)
+Started GET "/restaurants/1" for 127.0.0.1 at 2017-10-20 15:35:33 +0100
+Processing by RestaurantsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mRating Load (0.1ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings"[0m
+  [1m[36mRestaurant Load (0.1ms)[0m  [1m[34mSELECT  "restaurants".* FROM "restaurants" WHERE "restaurants"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering restaurants/show.html.erb within layouts/application
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mRating Load (0.1ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."restaurant_id" = ?[0m  [["restaurant_id", 1]]
+  Rendered restaurants/show.html.erb within layouts/application (6.5ms)
+Completed 200 OK in 10ms (Views: 8.6ms | ActiveRecord: 0.3ms)
+Started GET "/restaurants" for 127.0.0.1 at 2017-10-20 15:35:33 +0100
+Processing by RestaurantsController#index as HTML
+  Rendering restaurants/index.html.erb within layouts/application
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mRestaurant Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "restaurants" LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mRestaurant Load (0.1ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants"[0m
+  Rendered restaurants/index.html.erb within layouts/application (6.2ms)
+Completed 200 OK in 8ms (Views: 7.1ms | ActiveRecord: 0.6ms)
+Started DELETE "/restaurants/1" for 127.0.0.1 at 2017-10-20 15:35:34 +0100
+Processing by RestaurantsController#destroy as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mRestaurant Load (0.1ms)[0m  [1m[34mSELECT  "restaurants".* FROM "restaurants" WHERE "restaurants"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[31mDELETE FROM "restaurants" WHERE "restaurants"."id" = ?[0m  [["id", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://127.0.0.1:54020/restaurants
+Completed 302 Found in 8ms (ActiveRecord: 0.8ms)
+Started GET "/restaurants" for 127.0.0.1 at 2017-10-20 15:35:34 +0100
+Processing by RestaurantsController#index as HTML
+  Rendering restaurants/index.html.erb within layouts/application
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mRestaurant Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "restaurants" LIMIT ?[0m  [["LIMIT", 1]]
+  Rendered restaurants/index.html.erb within layouts/application (4.1ms)
+Completed 200 OK in 8ms (Views: 6.4ms | ActiveRecord: 0.3ms)
+  [1m[35m (2.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (0.8ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "tansaku@gmail.com"], ["LIMIT", 1]]
+  [1m[35mSQL (0.8ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["email", "tansaku@gmail.com"], ["encrypted_password", "$2a$04$iyPsHWBDV64km0nZE2big.fCaC6bdJ/91edKMF62OKh4x02FRR2q2"], ["created_at", "2017-10-20 14:35:34.730486"], ["updated_at", "2017-10-20 14:35:34.730486"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/restaurants/new" for 127.0.0.1 at 2017-10-20 15:35:34 +0100
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[33mUPDATE "users" SET "sign_in_count" = ?, "current_sign_in_at" = ?, "last_sign_in_at" = ?, "current_sign_in_ip" = ?, "last_sign_in_ip" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["sign_in_count", 1], ["current_sign_in_at", "2017-10-20 14:35:34.735596"], ["last_sign_in_at", "2017-10-20 14:35:34.735596"], ["current_sign_in_ip", "127.0.0.1"], ["last_sign_in_ip", "127.0.0.1"], ["updated_at", "2017-10-20 14:35:34.736157"], ["id", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Processing by RestaurantsController#new as HTML
+  Rendering restaurants/new.html.erb within layouts/application
+  Rendered restaurants/_form.html.erb (3.4ms)
+  Rendered restaurants/new.html.erb within layouts/application (4.9ms)
+Completed 200 OK in 8ms (Views: 7.5ms | ActiveRecord: 0.0ms)
+Started POST "/restaurants" for 127.0.0.1 at 2017-10-20 15:35:34 +0100
+Processing by RestaurantsController#create as HTML
+  Parameters: {"utf8"=>"✓", "restaurant"=>{"name"=>"Cafe Rouge", "address"=>"Kensington Church Street", "description"=>"French Bistro"}, "commit"=>"Create Restaurant"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "restaurants" ("name", "address", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Cafe Rouge"], ["address", "Kensington Church Street"], ["description", "French Bistro"], ["created_at", "2017-10-20 14:35:34.764634"], ["updated_at", "2017-10-20 14:35:34.764634"]]
+  [1m[35m (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://www.example.com/restaurants/1
+Completed 302 Found in 4ms (ActiveRecord: 0.5ms)
+Started GET "/restaurants/1" for 127.0.0.1 at 2017-10-20 15:35:34 +0100
+Processing by RestaurantsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mRating Load (0.1ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings"[0m
+  [1m[36mRestaurant Load (0.1ms)[0m  [1m[34mSELECT  "restaurants".* FROM "restaurants" WHERE "restaurants"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering restaurants/show.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mRating Load (0.1ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."restaurant_id" = ?[0m  [["restaurant_id", 1]]
+  Rendered restaurants/show.html.erb within layouts/application (7.6ms)
+Completed 200 OK in 12ms (Views: 9.7ms | ActiveRecord: 0.4ms)
+Started POST "/restaurants/1/ratings" for 127.0.0.1 at 2017-10-20 15:35:34 +0100
+Processing by RatingsController#create as HTML
+  Parameters: {"utf8"=>"✓", "rating"=>{"rater"=>"Some Bozo", "score"=>"1", "comment"=>"It sucked"}, "commit"=>"Create Rating", "restaurant_id"=>"1"}
+  [1m[36mRestaurant Load (0.2ms)[0m  [1m[34mSELECT  "restaurants".* FROM "restaurants" WHERE "restaurants"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "ratings" ("rater", "comment", "score", "restaurant_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["rater", "Some Bozo"], ["comment", "It sucked"], ["score", 1], ["restaurant_id", 1], ["created_at", "2017-10-20 14:35:34.795456"], ["updated_at", "2017-10-20 14:35:34.795456"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://www.example.com/restaurants/1
+Completed 302 Found in 5ms (ActiveRecord: 0.5ms)
+Started GET "/restaurants/1" for 127.0.0.1 at 2017-10-20 15:35:34 +0100
+Processing by RestaurantsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mRating Load (0.1ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings"[0m
+  [1m[36mRestaurant Load (0.1ms)[0m  [1m[34mSELECT  "restaurants".* FROM "restaurants" WHERE "restaurants"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering restaurants/show.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mRating Load (0.1ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."restaurant_id" = ?[0m  [["restaurant_id", 1]]
+  Rendered restaurants/show.html.erb within layouts/application (5.5ms)
+Completed 200 OK in 10ms (Views: 7.7ms | ActiveRecord: 0.5ms)
+  [1m[35m (1.5ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "tansaku@gmail.com"], ["LIMIT", 1]]
+  [1m[35mSQL (0.7ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["email", "tansaku@gmail.com"], ["encrypted_password", "$2a$04$nmhvUX5Ss9zAfB5xTo3Tk.dfzaoxOfKzy0abnxAEMvwkCkDFx8G0."], ["created_at", "2017-10-20 14:35:34.824338"], ["updated_at", "2017-10-20 14:35:34.824338"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/restaurants/new" for 127.0.0.1 at 2017-10-20 15:35:34 +0100
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  [1m[33mUPDATE "users" SET "sign_in_count" = ?, "current_sign_in_at" = ?, "last_sign_in_at" = ?, "current_sign_in_ip" = ?, "last_sign_in_ip" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["sign_in_count", 1], ["current_sign_in_at", "2017-10-20 14:35:34.829020"], ["last_sign_in_at", "2017-10-20 14:35:34.829020"], ["current_sign_in_ip", "127.0.0.1"], ["last_sign_in_ip", "127.0.0.1"], ["updated_at", "2017-10-20 14:35:34.829927"], ["id", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Processing by RestaurantsController#new as HTML
+  Rendering restaurants/new.html.erb within layouts/application
+  Rendered restaurants/_form.html.erb (1.7ms)
+  Rendered restaurants/new.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 7ms (Views: 6.5ms | ActiveRecord: 0.0ms)
+Started POST "/restaurants" for 127.0.0.1 at 2017-10-20 15:35:34 +0100
+Processing by RestaurantsController#create as HTML
+  Parameters: {"utf8"=>"✓", "restaurant"=>{"name"=>"Cafe Rouge", "address"=>"Kensington Church Street", "description"=>"French Bistro"}, "commit"=>"Create Restaurant"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.7ms)[0m  [1m[32mINSERT INTO "restaurants" ("name", "address", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Cafe Rouge"], ["address", "Kensington Church Street"], ["description", "French Bistro"], ["created_at", "2017-10-20 14:35:34.875628"], ["updated_at", "2017-10-20 14:35:34.875628"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://www.example.com/restaurants/1
+Completed 302 Found in 7ms (ActiveRecord: 1.0ms)
+Started GET "/restaurants/1" for 127.0.0.1 at 2017-10-20 15:35:34 +0100
+Processing by RestaurantsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mRating Load (0.1ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings"[0m
+  [1m[36mRestaurant Load (0.1ms)[0m  [1m[34mSELECT  "restaurants".* FROM "restaurants" WHERE "restaurants"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering restaurants/show.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mRating Load (0.1ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."restaurant_id" = ?[0m  [["restaurant_id", 1]]
+  Rendered restaurants/show.html.erb within layouts/application (3.5ms)
+Completed 200 OK in 6ms (Views: 4.5ms | ActiveRecord: 0.4ms)
+Started POST "/restaurants/1/ratings" for 127.0.0.1 at 2017-10-20 15:35:34 +0100
+Processing by RatingsController#create as HTML
+  Parameters: {"utf8"=>"✓", "rating"=>{"rater"=>"Some Bozo", "score"=>"2", "comment"=>"It sucked"}, "commit"=>"Create Rating", "restaurant_id"=>"1"}
+  [1m[36mRestaurant Load (0.1ms)[0m  [1m[34mSELECT  "restaurants".* FROM "restaurants" WHERE "restaurants"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "ratings" ("rater", "comment", "score", "restaurant_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["rater", "Some Bozo"], ["comment", "It sucked"], ["score", 2], ["restaurant_id", 1], ["created_at", "2017-10-20 14:35:34.902022"], ["updated_at", "2017-10-20 14:35:34.902022"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://www.example.com/restaurants/1
+Completed 302 Found in 8ms (ActiveRecord: 0.9ms)
+Started GET "/restaurants/1" for 127.0.0.1 at 2017-10-20 15:35:34 +0100
+Processing by RestaurantsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mRating Load (0.2ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings"[0m
+  [1m[36mRestaurant Load (0.5ms)[0m  [1m[34mSELECT  "restaurants".* FROM "restaurants" WHERE "restaurants"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering restaurants/show.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mRating Load (0.1ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."restaurant_id" = ?[0m  [["restaurant_id", 1]]
+  Rendered restaurants/show.html.erb within layouts/application (6.3ms)
+Completed 200 OK in 12ms (Views: 7.5ms | ActiveRecord: 1.0ms)
+Started POST "/restaurants/1/ratings" for 127.0.0.1 at 2017-10-20 15:35:34 +0100
+Processing by RatingsController#create as HTML
+  Parameters: {"utf8"=>"✓", "rating"=>{"rater"=>"Some Bozo", "score"=>"4", "comment"=>"It sucked"}, "commit"=>"Create Rating", "restaurant_id"=>"1"}
+  [1m[36mRestaurant Load (0.1ms)[0m  [1m[34mSELECT  "restaurants".* FROM "restaurants" WHERE "restaurants"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "ratings" ("rater", "comment", "score", "restaurant_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["rater", "Some Bozo"], ["comment", "It sucked"], ["score", 4], ["restaurant_id", 1], ["created_at", "2017-10-20 14:35:34.934476"], ["updated_at", "2017-10-20 14:35:34.934476"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://www.example.com/restaurants/1
+Completed 302 Found in 5ms (ActiveRecord: 0.4ms)
+Started GET "/restaurants/1" for 127.0.0.1 at 2017-10-20 15:35:34 +0100
+Processing by RestaurantsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mRating Load (0.2ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings"[0m
+  [1m[36mRestaurant Load (0.1ms)[0m  [1m[34mSELECT  "restaurants".* FROM "restaurants" WHERE "restaurants"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering restaurants/show.html.erb within layouts/application
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mRating Load (0.1ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."restaurant_id" = ?[0m  [["restaurant_id", 1]]
+  Rendered restaurants/show.html.erb within layouts/application (8.5ms)
+Completed 200 OK in 12ms (Views: 9.5ms | ActiveRecord: 0.9ms)
+  [1m[35m (2.2ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "tansaku@gmail.com"], ["LIMIT", 1]]
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["email", "tansaku@gmail.com"], ["encrypted_password", "$2a$04$cdwJgEoYm0hagHySVaQZ0eYzV7qgfY/fcSIZ1XcNAyM.95AMD9Gnq"], ["created_at", "2017-10-20 14:35:34.971103"], ["updated_at", "2017-10-20 14:35:34.971103"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/" for 127.0.0.1 at 2017-10-20 15:35:34 +0100
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[33mUPDATE "users" SET "sign_in_count" = ?, "current_sign_in_at" = ?, "last_sign_in_at" = ?, "current_sign_in_ip" = ?, "last_sign_in_ip" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["sign_in_count", 1], ["current_sign_in_at", "2017-10-20 14:35:34.973806"], ["last_sign_in_at", "2017-10-20 14:35:34.973806"], ["current_sign_in_ip", "127.0.0.1"], ["last_sign_in_ip", "127.0.0.1"], ["updated_at", "2017-10-20 14:35:34.974840"], ["id", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Processing by WelcomeController#index as HTML
+  Rendering welcome/index.html.erb within layouts/application
+  Rendered welcome/index.html.erb within layouts/application (0.8ms)
+Completed 200 OK in 3ms (Views: 2.6ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.4ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "tansaku@gmail.com"], ["LIMIT", 1]]
+  [1m[35mSQL (0.8ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["email", "tansaku@gmail.com"], ["encrypted_password", "$2a$04$bqh3dwsegLhIdp2rdaOLT.yMomKEbH5BxcjlN./Icns.sT169A7Ji"], ["created_at", "2017-10-20 14:35:34.995667"], ["updated_at", "2017-10-20 14:35:34.995667"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "restaurants" ("name", "rating", "address", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "Pizza Express"], ["rating", 4], ["address", "London"], ["description", "Pizzas"], ["created_at", "2017-10-20 14:35:34.999489"], ["updated_at", "2017-10-20 14:35:34.999489"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "restaurants" ("name", "rating", "address", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "McDonalds"], ["rating", 3], ["address", "Edinburgh"], ["description", "Burgers"], ["created_at", "2017-10-20 14:35:35.001456"], ["updated_at", "2017-10-20 14:35:35.001456"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/restaurants" for 127.0.0.1 at 2017-10-20 15:35:35 +0100
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.9ms)[0m  [1m[33mUPDATE "users" SET "sign_in_count" = ?, "current_sign_in_at" = ?, "last_sign_in_at" = ?, "current_sign_in_ip" = ?, "last_sign_in_ip" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["sign_in_count", 1], ["current_sign_in_at", "2017-10-20 14:35:35.003350"], ["last_sign_in_at", "2017-10-20 14:35:35.003350"], ["current_sign_in_ip", "127.0.0.1"], ["last_sign_in_ip", "127.0.0.1"], ["updated_at", "2017-10-20 14:35:35.004175"], ["id", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Processing by RestaurantsController#index as HTML
+  Rendering restaurants/index.html.erb within layouts/application
+  [1m[36mRestaurant Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "restaurants" LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mRestaurant Load (1.0ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants"[0m
+  Rendered restaurants/index.html.erb within layouts/application (4.3ms)
+Completed 200 OK in 9ms (Views: 7.1ms | ActiveRecord: 1.1ms)
+  [1m[35m (1.2ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "tansaku@gmail.com"], ["LIMIT", 1]]
+  [1m[35mSQL (1.1ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["email", "tansaku@gmail.com"], ["encrypted_password", "$2a$04$TMvVsKjAR1JSzw.0fIKD1uUQTJ/pH2QZIhvXN/7/Q8AMHckd3emFi"], ["created_at", "2017-10-20 14:36:49.713501"], ["updated_at", "2017-10-20 14:36:49.713501"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/" for 127.0.0.1 at 2017-10-20 15:36:49 +0100
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[33mUPDATE "users" SET "sign_in_count" = ?, "current_sign_in_at" = ?, "last_sign_in_at" = ?, "current_sign_in_ip" = ?, "last_sign_in_ip" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["sign_in_count", 1], ["current_sign_in_at", "2017-10-20 14:36:49.734344"], ["last_sign_in_at", "2017-10-20 14:36:49.734344"], ["current_sign_in_ip", "127.0.0.1"], ["last_sign_in_ip", "127.0.0.1"], ["updated_at", "2017-10-20 14:36:49.735156"], ["id", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Processing by WelcomeController#index as HTML
+  Rendering welcome/index.html.erb within layouts/application
+  Rendered welcome/index.html.erb within layouts/application (2.6ms)
+Completed 200 OK in 223ms (Views: 219.6ms | ActiveRecord: 0.0ms)
+Started GET "/restaurants" for 127.0.0.1 at 2017-10-20 15:36:49 +0100
+Processing by RestaurantsController#index as HTML
+  Rendering restaurants/index.html.erb within layouts/application
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mRestaurant Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "restaurants" LIMIT ?[0m  [["LIMIT", 1]]
+  Rendered restaurants/index.html.erb within layouts/application (9.1ms)
+Completed 200 OK in 28ms (Views: 15.1ms | ActiveRecord: 1.2ms)
+  [1m[35m (0.4ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "tansaku@gmail.com"], ["LIMIT", 1]]
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["email", "tansaku@gmail.com"], ["encrypted_password", "$2a$04$Px.wRHrlcjZQAI6NfB0K6esVjvcCNClSFnyXMOsCFlXqcqn.52W3q"], ["created_at", "2017-10-20 14:36:50.008549"], ["updated_at", "2017-10-20 14:36:50.008549"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/restaurants/new" for 127.0.0.1 at 2017-10-20 15:36:50 +0100
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  [1m[33mUPDATE "users" SET "sign_in_count" = ?, "current_sign_in_at" = ?, "last_sign_in_at" = ?, "current_sign_in_ip" = ?, "last_sign_in_ip" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["sign_in_count", 1], ["current_sign_in_at", "2017-10-20 14:36:50.011097"], ["last_sign_in_at", "2017-10-20 14:36:50.011097"], ["current_sign_in_ip", "127.0.0.1"], ["last_sign_in_ip", "127.0.0.1"], ["updated_at", "2017-10-20 14:36:50.011542"], ["id", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Processing by RestaurantsController#new as HTML
+  Rendering restaurants/new.html.erb within layouts/application
+  Rendered restaurants/_form.html.erb (19.3ms)
+  Rendered restaurants/new.html.erb within layouts/application (23.0ms)
+Completed 200 OK in 39ms (Views: 24.8ms | ActiveRecord: 0.2ms)
+Started GET "/restaurants/new" for 127.0.0.1 at 2017-10-20 15:36:50 +0100
+Processing by RestaurantsController#new as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering restaurants/new.html.erb within layouts/application
+  Rendered restaurants/_form.html.erb (2.0ms)
+  Rendered restaurants/new.html.erb within layouts/application (2.6ms)
+Completed 200 OK in 6ms (Views: 4.2ms | ActiveRecord: 0.2ms)
+Started POST "/restaurants" for 127.0.0.1 at 2017-10-20 15:36:50 +0100
+Processing by RestaurantsController#create as HTML
+  Parameters: {"utf8"=>"✓", "restaurant"=>{"name"=>"Cafe Rouge", "address"=>"Kensington Church Street", "description"=>"French Bistro"}, "commit"=>"Create Restaurant"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "restaurants" ("name", "address", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Cafe Rouge"], ["address", "Kensington Church Street"], ["description", "French Bistro"], ["created_at", "2017-10-20 14:36:50.078071"], ["updated_at", "2017-10-20 14:36:50.078071"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://www.example.com/restaurants/1
+Completed 302 Found in 6ms (ActiveRecord: 0.8ms)
+Started GET "/restaurants/1" for 127.0.0.1 at 2017-10-20 15:36:50 +0100
+Processing by RestaurantsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mRating Load (0.5ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings"[0m
+  [1m[36mRestaurant Load (0.2ms)[0m  [1m[34mSELECT  "restaurants".* FROM "restaurants" WHERE "restaurants"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering restaurants/show.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mRating Load (0.4ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."restaurant_id" = ?[0m  [["restaurant_id", 1]]
+  Rendered restaurants/show.html.erb within layouts/application (32.4ms)
+Completed 200 OK in 46ms (Views: 32.9ms | ActiveRecord: 1.7ms)
+  [1m[35m (0.4ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "tansaku@gmail.com"], ["LIMIT", 1]]
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["email", "tansaku@gmail.com"], ["encrypted_password", "$2a$04$5psFOSeO1ta5IHyI27.Xq.snUSJQEecbHl1ax0Zb2bEtdCn.yEy5K"], ["created_at", "2017-10-20 14:36:50.138542"], ["updated_at", "2017-10-20 14:36:50.138542"]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/restaurants/new" for 127.0.0.1 at 2017-10-20 15:36:50 +0100
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[33mUPDATE "users" SET "sign_in_count" = ?, "current_sign_in_at" = ?, "last_sign_in_at" = ?, "current_sign_in_ip" = ?, "last_sign_in_ip" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["sign_in_count", 1], ["current_sign_in_at", "2017-10-20 14:36:50.143657"], ["last_sign_in_at", "2017-10-20 14:36:50.143657"], ["current_sign_in_ip", "127.0.0.1"], ["last_sign_in_ip", "127.0.0.1"], ["updated_at", "2017-10-20 14:36:50.144790"], ["id", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Processing by RestaurantsController#new as HTML
+  Rendering restaurants/new.html.erb within layouts/application
+  Rendered restaurants/_form.html.erb (1.9ms)
+  Rendered restaurants/new.html.erb within layouts/application (2.2ms)
+Completed 200 OK in 4ms (Views: 3.3ms | ActiveRecord: 0.0ms)
+Started POST "/restaurants" for 127.0.0.1 at 2017-10-20 15:36:50 +0100
+Processing by RestaurantsController#create as HTML
+  Parameters: {"utf8"=>"✓", "restaurant"=>{"name"=>"", "address"=>"", "description"=>""}, "commit"=>"Create Restaurant"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+  Rendering restaurants/new.html.erb within layouts/application
+  Rendered restaurants/_form.html.erb (4.0ms)
+  Rendered restaurants/new.html.erb within layouts/application (4.4ms)
+Completed 200 OK in 16ms (Views: 7.0ms | ActiveRecord: 0.4ms)
+  [1m[35m (0.5ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "tansaku@gmail.com"], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["email", "tansaku@gmail.com"], ["encrypted_password", "$2a$04$8lj7ZFtdiitHtyNwHHzNj.O5tQWVd0uZsNRmqtc2tWSR77fA/CzOe"], ["created_at", "2017-10-20 14:36:50.185260"], ["updated_at", "2017-10-20 14:36:50.185260"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/restaurants" for 127.0.0.1 at 2017-10-20 15:36:50 +0100
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  [1m[33mUPDATE "users" SET "sign_in_count" = ?, "current_sign_in_at" = ?, "last_sign_in_at" = ?, "current_sign_in_ip" = ?, "last_sign_in_ip" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["sign_in_count", 1], ["current_sign_in_at", "2017-10-20 14:36:50.188136"], ["last_sign_in_at", "2017-10-20 14:36:50.188136"], ["current_sign_in_ip", "127.0.0.1"], ["last_sign_in_ip", "127.0.0.1"], ["updated_at", "2017-10-20 14:36:50.188637"], ["id", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Processing by RestaurantsController#index as HTML
+  Rendering restaurants/index.html.erb within layouts/application
+  [1m[36mRestaurant Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "restaurants" LIMIT ?[0m  [["LIMIT", 1]]
+  Rendered restaurants/index.html.erb within layouts/application (1.1ms)
+Completed 200 OK in 3ms (Views: 2.9ms | ActiveRecord: 0.1ms)
+  [1m[35m (0.7ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "tansaku@gmail.com"], ["LIMIT", 1]]
+  [1m[35mSQL (0.9ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["email", "tansaku@gmail.com"], ["encrypted_password", "$2a$04$WmcPqUSvqebmBFWGKgOlpeOQQfG5sjrMPgNj2SDk9iiJoESUJVe4K"], ["created_at", "2017-10-20 14:36:50.207877"], ["updated_at", "2017-10-20 14:36:50.207877"]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "restaurants" ("name", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Pizza Express"], ["description", "Bloody nice"], ["created_at", "2017-10-20 14:36:50.213803"], ["updated_at", "2017-10-20 14:36:50.213803"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/restaurants" for 127.0.0.1 at 2017-10-20 15:36:50 +0100
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  [1m[33mUPDATE "users" SET "sign_in_count" = ?, "current_sign_in_at" = ?, "last_sign_in_at" = ?, "current_sign_in_ip" = ?, "last_sign_in_ip" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["sign_in_count", 1], ["current_sign_in_at", "2017-10-20 14:36:50.216360"], ["last_sign_in_at", "2017-10-20 14:36:50.216360"], ["current_sign_in_ip", "127.0.0.1"], ["last_sign_in_ip", "127.0.0.1"], ["updated_at", "2017-10-20 14:36:50.217197"], ["id", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Processing by RestaurantsController#index as HTML
+  Rendering restaurants/index.html.erb within layouts/application
+  [1m[36mRestaurant Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "restaurants" LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mRestaurant Load (0.1ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants"[0m
+  Rendered restaurants/index.html.erb within layouts/application (1.5ms)
+Completed 200 OK in 4ms (Views: 3.5ms | ActiveRecord: 0.3ms)
+  [1m[35m (0.6ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "tansaku@gmail.com"], ["LIMIT", 1]]
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["email", "tansaku@gmail.com"], ["encrypted_password", "$2a$04$r4C143jj7uqGhefHep/TbOmAp84Z1dPIPj5G9tOC3Vye3NIdytENi"], ["created_at", "2017-10-20 14:36:50.245120"], ["updated_at", "2017-10-20 14:36:50.245120"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/restaurants/new" for 127.0.0.1 at 2017-10-20 15:36:50 +0100
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[33mUPDATE "users" SET "sign_in_count" = ?, "current_sign_in_at" = ?, "last_sign_in_at" = ?, "current_sign_in_ip" = ?, "last_sign_in_ip" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["sign_in_count", 1], ["current_sign_in_at", "2017-10-20 14:36:50.248549"], ["last_sign_in_at", "2017-10-20 14:36:50.248549"], ["current_sign_in_ip", "127.0.0.1"], ["last_sign_in_ip", "127.0.0.1"], ["updated_at", "2017-10-20 14:36:50.248995"], ["id", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Processing by RestaurantsController#new as HTML
+  Rendering restaurants/new.html.erb within layouts/application
+  Rendered restaurants/_form.html.erb (1.3ms)
+  Rendered restaurants/new.html.erb within layouts/application (1.6ms)
+Completed 200 OK in 3ms (Views: 2.7ms | ActiveRecord: 0.0ms)
+Started GET "/restaurants/new" for 127.0.0.1 at 2017-10-20 15:36:50 +0100
+Processing by RestaurantsController#new as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering restaurants/new.html.erb within layouts/application
+  Rendered restaurants/_form.html.erb (3.9ms)
+  Rendered restaurants/new.html.erb within layouts/application (5.6ms)
+Completed 200 OK in 11ms (Views: 9.8ms | ActiveRecord: 0.1ms)
+Started POST "/restaurants" for 127.0.0.1 at 2017-10-20 15:36:50 +0100
+Processing by RestaurantsController#create as HTML
+  Parameters: {"utf8"=>"✓", "restaurant"=>{"name"=>"Cafe Rouge", "address"=>"Kensington Church Street", "description"=>"French Bistro"}, "commit"=>"Create Restaurant"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.8ms)[0m  [1m[32mINSERT INTO "restaurants" ("name", "address", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Cafe Rouge"], ["address", "Kensington Church Street"], ["description", "French Bistro"], ["created_at", "2017-10-20 14:36:50.289023"], ["updated_at", "2017-10-20 14:36:50.289023"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://www.example.com/restaurants/1
+Completed 302 Found in 11ms (ActiveRecord: 1.4ms)
+Started GET "/restaurants/1" for 127.0.0.1 at 2017-10-20 15:36:50 +0100
+Processing by RestaurantsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mRating Load (0.1ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings"[0m
+  [1m[36mRestaurant Load (0.1ms)[0m  [1m[34mSELECT  "restaurants".* FROM "restaurants" WHERE "restaurants"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering restaurants/show.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mRating Load (0.1ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."restaurant_id" = ?[0m  [["restaurant_id", 1]]
+  Rendered restaurants/show.html.erb within layouts/application (4.1ms)
+Completed 200 OK in 8ms (Views: 5.8ms | ActiveRecord: 0.5ms)
+Started GET "/restaurants/1/edit" for 127.0.0.1 at 2017-10-20 15:36:50 +0100
+Processing by RestaurantsController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mRestaurant Load (0.1ms)[0m  [1m[34mSELECT  "restaurants".* FROM "restaurants" WHERE "restaurants"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering restaurants/edit.html.erb within layouts/application
+  Rendered restaurants/_form.html.erb (2.1ms)
+  Rendered restaurants/edit.html.erb within layouts/application (2.8ms)
+Completed 200 OK in 8ms (Views: 4.6ms | ActiveRecord: 0.3ms)
+Started PATCH "/restaurants/1" for 127.0.0.1 at 2017-10-20 15:36:50 +0100
+Processing by RestaurantsController#update as HTML
+  Parameters: {"utf8"=>"✓", "restaurant"=>{"name"=>"Adele's Bistro", "address"=>"Chelsea", "description"=>"French"}, "commit"=>"Update Restaurant", "id"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mRestaurant Load (0.0ms)[0m  [1m[34mSELECT  "restaurants".* FROM "restaurants" WHERE "restaurants"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  [1m[33mUPDATE "restaurants" SET "name" = ?, "address" = ?, "description" = ?, "updated_at" = ? WHERE "restaurants"."id" = ?[0m  [["name", "Adele's Bistro"], ["address", "Chelsea"], ["description", "French"], ["updated_at", "2017-10-20 14:36:50.355284"], ["id", 1]]
+  [1m[35m (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://www.example.com/restaurants/1
+Completed 302 Found in 4ms (ActiveRecord: 0.4ms)
+Started GET "/restaurants/1" for 127.0.0.1 at 2017-10-20 15:36:50 +0100
+Processing by RestaurantsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mRating Load (0.1ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings"[0m
+  [1m[36mRestaurant Load (0.1ms)[0m  [1m[34mSELECT  "restaurants".* FROM "restaurants" WHERE "restaurants"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering restaurants/show.html.erb within layouts/application
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mRating Load (0.0ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."restaurant_id" = ?[0m  [["restaurant_id", 1]]
+  Rendered restaurants/show.html.erb within layouts/application (3.6ms)
+Completed 200 OK in 7ms (Views: 4.7ms | ActiveRecord: 0.4ms)
+  [1m[35m (0.4ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (0.8ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "tansaku@gmail.com"], ["LIMIT", 1]]
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["email", "tansaku@gmail.com"], ["encrypted_password", "$2a$04$PMH5AD32xYjUXjDkYi97hOHAAnakA6968WUaO5gqHc81oGN7b.7/m"], ["created_at", "2017-10-20 14:36:50.380069"], ["updated_at", "2017-10-20 14:36:50.380069"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/restaurants/new" for 127.0.0.1 at 2017-10-20 15:36:54 +0100
+  [1m[35m (0.3ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[33mUPDATE "users" SET "sign_in_count" = ?, "current_sign_in_at" = ?, "last_sign_in_at" = ?, "current_sign_in_ip" = ?, "last_sign_in_ip" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["sign_in_count", 1], ["current_sign_in_at", "2017-10-20 14:36:54.435460"], ["last_sign_in_at", "2017-10-20 14:36:54.435460"], ["current_sign_in_ip", "127.0.0.1"], ["last_sign_in_ip", "127.0.0.1"], ["updated_at", "2017-10-20 14:36:54.437279"], ["id", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Processing by RestaurantsController#new as HTML
+  Rendering restaurants/new.html.erb within layouts/application
+  Rendered restaurants/_form.html.erb (3.2ms)
+  Rendered restaurants/new.html.erb within layouts/application (3.8ms)
+Completed 200 OK in 7ms (Views: 5.8ms | ActiveRecord: 0.0ms)
+Started GET "/assets/application-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css" for 127.0.0.1 at 2017-10-20 15:36:54 +0100
+Started GET "/assets/application-5a58cf0ed6c3201569220a2d009778bff3144de96a6e29f2be635f1caeb412a9.js" for 127.0.0.1 at 2017-10-20 15:36:54 +0100
+Started POST "/restaurants" for 127.0.0.1 at 2017-10-20 15:36:56 +0100
+Processing by RestaurantsController#create as HTML
+  Parameters: {"utf8"=>"✓", "restaurant"=>{"name"=>"Cafe Rouge", "address"=>"Kensington Church Street", "description"=>"French Bistro"}, "commit"=>"Create Restaurant"}
+  [1m[36mUser Load (1.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (1.3ms)[0m  [1m[32mINSERT INTO "restaurants" ("name", "address", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Cafe Rouge"], ["address", "Kensington Church Street"], ["description", "French Bistro"], ["created_at", "2017-10-20 14:36:56.595425"], ["updated_at", "2017-10-20 14:36:56.595425"]]
+  [1m[35m (0.8ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://127.0.0.1:54126/restaurants/1
+Completed 302 Found in 26ms (ActiveRecord: 3.7ms)
+Started GET "/restaurants/1" for 127.0.0.1 at 2017-10-20 15:36:56 +0100
+Processing by RestaurantsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mRating Load (0.3ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings"[0m
+  [1m[36mRestaurant Load (0.7ms)[0m  [1m[34mSELECT  "restaurants".* FROM "restaurants" WHERE "restaurants"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering restaurants/show.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mRating Load (0.6ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."restaurant_id" = ?[0m  [["restaurant_id", 1]]
+  Rendered restaurants/show.html.erb within layouts/application (23.1ms)
+Completed 200 OK in 40ms (Views: 31.7ms | ActiveRecord: 1.8ms)
+Started GET "/restaurants" for 127.0.0.1 at 2017-10-20 15:36:57 +0100
+Processing by RestaurantsController#index as HTML
+  Rendering restaurants/index.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mRestaurant Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "restaurants" LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mRestaurant Load (0.1ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants"[0m
+  Rendered restaurants/index.html.erb within layouts/application (3.8ms)
+Completed 200 OK in 7ms (Views: 5.3ms | ActiveRecord: 0.6ms)
+Started DELETE "/restaurants/1" for 127.0.0.1 at 2017-10-20 15:36:57 +0100
+Processing by RestaurantsController#destroy as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mRestaurant Load (0.1ms)[0m  [1m[34mSELECT  "restaurants".* FROM "restaurants" WHERE "restaurants"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[31mDELETE FROM "restaurants" WHERE "restaurants"."id" = ?[0m  [["id", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://127.0.0.1:54126/restaurants
+Completed 302 Found in 14ms (ActiveRecord: 1.6ms)
+Started GET "/restaurants" for 127.0.0.1 at 2017-10-20 15:36:57 +0100
+Processing by RestaurantsController#index as HTML
+  Rendering restaurants/index.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mRestaurant Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "restaurants" LIMIT ?[0m  [["LIMIT", 1]]
+  Rendered restaurants/index.html.erb within layouts/application (3.5ms)
+Completed 200 OK in 9ms (Views: 7.6ms | ActiveRecord: 0.4ms)
+  [1m[35m (2.3ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "tansaku@gmail.com"], ["LIMIT", 1]]
+  [1m[35mSQL (0.8ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["email", "tansaku@gmail.com"], ["encrypted_password", "$2a$04$mW6PkTHqvi/BQewa81/XY.zZwfYA6zj3DkMfO173l/oFGmRidBpDO"], ["created_at", "2017-10-20 14:36:57.987047"], ["updated_at", "2017-10-20 14:36:57.987047"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/restaurants/new" for 127.0.0.1 at 2017-10-20 15:36:57 +0100
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  [1m[33mUPDATE "users" SET "sign_in_count" = ?, "current_sign_in_at" = ?, "last_sign_in_at" = ?, "current_sign_in_ip" = ?, "last_sign_in_ip" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["sign_in_count", 1], ["current_sign_in_at", "2017-10-20 14:36:57.991114"], ["last_sign_in_at", "2017-10-20 14:36:57.991114"], ["current_sign_in_ip", "127.0.0.1"], ["last_sign_in_ip", "127.0.0.1"], ["updated_at", "2017-10-20 14:36:57.991592"], ["id", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Processing by RestaurantsController#new as HTML
+  Rendering restaurants/new.html.erb within layouts/application
+  Rendered restaurants/_form.html.erb (1.3ms)
+  Rendered restaurants/new.html.erb within layouts/application (1.6ms)
+Completed 200 OK in 3ms (Views: 2.9ms | ActiveRecord: 0.0ms)
+Started POST "/restaurants" for 127.0.0.1 at 2017-10-20 15:36:58 +0100
+Processing by RestaurantsController#create as HTML
+  Parameters: {"utf8"=>"✓", "restaurant"=>{"name"=>"Cafe Rouge", "address"=>"Kensington Church Street", "description"=>"French Bistro"}, "commit"=>"Create Restaurant"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "restaurants" ("name", "address", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Cafe Rouge"], ["address", "Kensington Church Street"], ["description", "French Bistro"], ["created_at", "2017-10-20 14:36:58.012654"], ["updated_at", "2017-10-20 14:36:58.012654"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://www.example.com/restaurants/1
+Completed 302 Found in 6ms (ActiveRecord: 0.7ms)
+Started GET "/restaurants/1" for 127.0.0.1 at 2017-10-20 15:36:58 +0100
+Processing by RestaurantsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mRating Load (0.2ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings"[0m
+  [1m[36mRestaurant Load (0.1ms)[0m  [1m[34mSELECT  "restaurants".* FROM "restaurants" WHERE "restaurants"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering restaurants/show.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mRating Load (0.1ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."restaurant_id" = ?[0m  [["restaurant_id", 1]]
+  Rendered restaurants/show.html.erb within layouts/application (5.1ms)
+Completed 200 OK in 10ms (Views: 6.5ms | ActiveRecord: 0.6ms)
+Started POST "/restaurants/1/ratings" for 127.0.0.1 at 2017-10-20 15:36:58 +0100
+Processing by RatingsController#create as HTML
+  Parameters: {"utf8"=>"✓", "rating"=>{"rater"=>"Some Bozo", "score"=>"1", "comment"=>"It sucked"}, "commit"=>"Create Rating", "restaurant_id"=>"1"}
+  [1m[36mRestaurant Load (0.1ms)[0m  [1m[34mSELECT  "restaurants".* FROM "restaurants" WHERE "restaurants"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "ratings" ("rater", "comment", "score", "restaurant_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["rater", "Some Bozo"], ["comment", "It sucked"], ["score", 1], ["restaurant_id", 1], ["created_at", "2017-10-20 14:36:58.058614"], ["updated_at", "2017-10-20 14:36:58.058614"]]
+  [1m[35m (0.8ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://www.example.com/restaurants/1
+Completed 302 Found in 6ms (ActiveRecord: 1.6ms)
+Started GET "/restaurants/1" for 127.0.0.1 at 2017-10-20 15:36:58 +0100
+Processing by RestaurantsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mRating Load (0.4ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings"[0m
+  [1m[36mRestaurant Load (0.1ms)[0m  [1m[34mSELECT  "restaurants".* FROM "restaurants" WHERE "restaurants"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering restaurants/show.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mRating Load (0.1ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."restaurant_id" = ?[0m  [["restaurant_id", 1]]
+  Rendered restaurants/show.html.erb within layouts/application (3.6ms)
+Completed 200 OK in 10ms (Views: 4.6ms | ActiveRecord: 0.8ms)
+  [1m[35m (1.2ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "tansaku@gmail.com"], ["LIMIT", 1]]
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["email", "tansaku@gmail.com"], ["encrypted_password", "$2a$04$ASZnM/xlRi1yal5nsrRab.lu8pLDUZgDhwgTe0qoOeViUsZEuJ4EG"], ["created_at", "2017-10-20 14:36:58.087382"], ["updated_at", "2017-10-20 14:36:58.087382"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/restaurants/new" for 127.0.0.1 at 2017-10-20 15:36:58 +0100
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (1.3ms)[0m  [1m[33mUPDATE "users" SET "sign_in_count" = ?, "current_sign_in_at" = ?, "last_sign_in_at" = ?, "current_sign_in_ip" = ?, "last_sign_in_ip" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["sign_in_count", 1], ["current_sign_in_at", "2017-10-20 14:36:58.095350"], ["last_sign_in_at", "2017-10-20 14:36:58.095350"], ["current_sign_in_ip", "127.0.0.1"], ["last_sign_in_ip", "127.0.0.1"], ["updated_at", "2017-10-20 14:36:58.096029"], ["id", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Processing by RestaurantsController#new as HTML
+  Rendering restaurants/new.html.erb within layouts/application
+  Rendered restaurants/_form.html.erb (1.4ms)
+  Rendered restaurants/new.html.erb within layouts/application (1.8ms)
+Completed 200 OK in 4ms (Views: 3.7ms | ActiveRecord: 0.0ms)
+Started POST "/restaurants" for 127.0.0.1 at 2017-10-20 15:36:58 +0100
+Processing by RestaurantsController#create as HTML
+  Parameters: {"utf8"=>"✓", "restaurant"=>{"name"=>"Cafe Rouge", "address"=>"Kensington Church Street", "description"=>"French Bistro"}, "commit"=>"Create Restaurant"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "restaurants" ("name", "address", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Cafe Rouge"], ["address", "Kensington Church Street"], ["description", "French Bistro"], ["created_at", "2017-10-20 14:36:58.124710"], ["updated_at", "2017-10-20 14:36:58.124710"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://www.example.com/restaurants/1
+Completed 302 Found in 4ms (ActiveRecord: 0.4ms)
+Started GET "/restaurants/1" for 127.0.0.1 at 2017-10-20 15:36:58 +0100
+Processing by RestaurantsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mRating Load (0.1ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings"[0m
+  [1m[36mRestaurant Load (0.2ms)[0m  [1m[34mSELECT  "restaurants".* FROM "restaurants" WHERE "restaurants"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering restaurants/show.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mRating Load (0.2ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."restaurant_id" = ?[0m  [["restaurant_id", 1]]
+  Rendered restaurants/show.html.erb within layouts/application (6.7ms)
+Completed 200 OK in 10ms (Views: 7.9ms | ActiveRecord: 0.7ms)
+Started POST "/restaurants/1/ratings" for 127.0.0.1 at 2017-10-20 15:36:58 +0100
+Processing by RatingsController#create as HTML
+  Parameters: {"utf8"=>"✓", "rating"=>{"rater"=>"Some Bozo", "score"=>"2", "comment"=>"It sucked"}, "commit"=>"Create Rating", "restaurant_id"=>"1"}
+  [1m[36mRestaurant Load (0.1ms)[0m  [1m[34mSELECT  "restaurants".* FROM "restaurants" WHERE "restaurants"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "ratings" ("rater", "comment", "score", "restaurant_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["rater", "Some Bozo"], ["comment", "It sucked"], ["score", 2], ["restaurant_id", 1], ["created_at", "2017-10-20 14:36:58.158025"], ["updated_at", "2017-10-20 14:36:58.158025"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://www.example.com/restaurants/1
+Completed 302 Found in 4ms (ActiveRecord: 0.5ms)
+Started GET "/restaurants/1" for 127.0.0.1 at 2017-10-20 15:36:58 +0100
+Processing by RestaurantsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mRating Load (0.1ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings"[0m
+  [1m[36mRestaurant Load (0.1ms)[0m  [1m[34mSELECT  "restaurants".* FROM "restaurants" WHERE "restaurants"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering restaurants/show.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mRating Load (0.1ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."restaurant_id" = ?[0m  [["restaurant_id", 1]]
+  Rendered restaurants/show.html.erb within layouts/application (8.4ms)
+Completed 200 OK in 11ms (Views: 9.1ms | ActiveRecord: 0.6ms)
+Started POST "/restaurants/1/ratings" for 127.0.0.1 at 2017-10-20 15:36:58 +0100
+Processing by RatingsController#create as HTML
+  Parameters: {"utf8"=>"✓", "rating"=>{"rater"=>"Some Bozo", "score"=>"4", "comment"=>"It sucked"}, "commit"=>"Create Rating", "restaurant_id"=>"1"}
+  [1m[36mRestaurant Load (0.1ms)[0m  [1m[34mSELECT  "restaurants".* FROM "restaurants" WHERE "restaurants"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "ratings" ("rater", "comment", "score", "restaurant_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["rater", "Some Bozo"], ["comment", "It sucked"], ["score", 4], ["restaurant_id", 1], ["created_at", "2017-10-20 14:36:58.187484"], ["updated_at", "2017-10-20 14:36:58.187484"]]
+  [1m[35m (0.4ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://www.example.com/restaurants/1
+Completed 302 Found in 5ms (ActiveRecord: 0.8ms)
+Started GET "/restaurants/1" for 127.0.0.1 at 2017-10-20 15:36:58 +0100
+Processing by RestaurantsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mRating Load (0.1ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings"[0m
+  [1m[36mRestaurant Load (0.1ms)[0m  [1m[34mSELECT  "restaurants".* FROM "restaurants" WHERE "restaurants"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering restaurants/show.html.erb within layouts/application
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mRating Load (0.1ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings" WHERE "ratings"."restaurant_id" = ?[0m  [["restaurant_id", 1]]
+  Rendered restaurants/show.html.erb within layouts/application (8.3ms)
+Completed 200 OK in 13ms (Views: 11.3ms | ActiveRecord: 0.4ms)
+  [1m[35m (10.8ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.3ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "tansaku@gmail.com"], ["LIMIT", 1]]
+  [1m[35mSQL (1.0ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["email", "tansaku@gmail.com"], ["encrypted_password", "$2a$04$8H4OBFIC5orUGErPgTmi2.c0X1ds2PNbAW1prrELWNn4lMyw9mjNq"], ["created_at", "2017-10-20 14:36:58.231769"], ["updated_at", "2017-10-20 14:36:58.231769"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/" for 127.0.0.1 at 2017-10-20 15:36:58 +0100
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (1.1ms)[0m  [1m[33mUPDATE "users" SET "sign_in_count" = ?, "current_sign_in_at" = ?, "last_sign_in_at" = ?, "current_sign_in_ip" = ?, "last_sign_in_ip" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["sign_in_count", 1], ["current_sign_in_at", "2017-10-20 14:36:58.238165"], ["last_sign_in_at", "2017-10-20 14:36:58.238165"], ["current_sign_in_ip", "127.0.0.1"], ["last_sign_in_ip", "127.0.0.1"], ["updated_at", "2017-10-20 14:36:58.241797"], ["id", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Processing by WelcomeController#index as HTML
+  Rendering welcome/index.html.erb within layouts/application
+  Rendered welcome/index.html.erb within layouts/application (0.6ms)
+Completed 200 OK in 3ms (Views: 2.8ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.4ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "tansaku@gmail.com"], ["LIMIT", 1]]
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["email", "tansaku@gmail.com"], ["encrypted_password", "$2a$04$vpNB66PxpJwqGBzh.UPqeOgWgrIuuMsBgbf2cMPKanOeK.NUtFV4S"], ["created_at", "2017-10-20 14:36:58.262384"], ["updated_at", "2017-10-20 14:36:58.262384"]]
+  [1m[35m (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.5ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "restaurants" ("name", "rating", "address", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "Pizza Express"], ["rating", 4], ["address", "London"], ["description", "Pizzas"], ["created_at", "2017-10-20 14:36:58.269349"], ["updated_at", "2017-10-20 14:36:58.269349"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "restaurants" ("name", "rating", "address", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "McDonalds"], ["rating", 3], ["address", "Edinburgh"], ["description", "Burgers"], ["created_at", "2017-10-20 14:36:58.272930"], ["updated_at", "2017-10-20 14:36:58.272930"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/restaurants" for 127.0.0.1 at 2017-10-20 15:36:58 +0100
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  [1m[33mUPDATE "users" SET "sign_in_count" = ?, "current_sign_in_at" = ?, "last_sign_in_at" = ?, "current_sign_in_ip" = ?, "last_sign_in_ip" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["sign_in_count", 1], ["current_sign_in_at", "2017-10-20 14:36:58.274902"], ["last_sign_in_at", "2017-10-20 14:36:58.274902"], ["current_sign_in_ip", "127.0.0.1"], ["last_sign_in_ip", "127.0.0.1"], ["updated_at", "2017-10-20 14:36:58.275400"], ["id", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Processing by RestaurantsController#index as HTML
+  Rendering restaurants/index.html.erb within layouts/application
+  [1m[36mRestaurant Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "restaurants" LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mRestaurant Load (0.1ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants"[0m
+  Rendered restaurants/index.html.erb within layouts/application (2.1ms)
+Completed 200 OK in 8ms (Views: 7.4ms | ActiveRecord: 0.2ms)
+  [1m[35m (0.6ms)[0m  [1m[31mrollback transaction[0m
